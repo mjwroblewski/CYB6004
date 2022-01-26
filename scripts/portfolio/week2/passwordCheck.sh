@@ -3,31 +3,32 @@
 # Hashes the entered password and compares it to secret.txt
 # Displays an "Access Granted" or "Access Denied" message
 
-# Michael - 2022/01/24
+# Michael - 2022/01/26
 
-read -sp "Please enter your secret password: " secretPassword
+# Read the password
+read -sp "Please enter your secret password: " var_passCheck
 
-    echo $secretPassword | sha256sum > secretCheck
+    # Hash the entered password
+    var_checkHash=$(echo "$var_passCheck" | sha256sum)
 
-        # Hashes the entered password
+    # Read password secret.txt into a variable
+    var_sPass="Passwords/secret.txt"
+    var_sHash=$(cat "$var_sPass")
 
-if diff -q "secretCheck" "Passwords/secret.txt" >/dev/null; then
-
-    # Checks whether the entered password hash is different to the secret password hash
-
-        echo "Access Granted"
-
-            # If the passwords match
+# Check whether the passwords match
+if [ "$var_sHash" = "$var_checkHash" ]; then
+ 
+    # If the passwords match
+    echo "Access Granted"
 
     exit 0
 
 else
 
-    echo "Access Denied"
+# If the passwords differ
+echo "Access Denied"
 
-        # If the passwords differ
-
-    exit 1
+exit 1
 
 fi
 
@@ -35,3 +36,7 @@ fi
     # CYB6004.2022.AC1.OFFCAMPUS Scripting Languages
         # Week 2: Creating user interaction scripts
         # 2.4 Write if statements to control program flow
+
+    # Linuxize (2019) "How to compare strings in bash".
+        #https://linuxize.com/post/how-to-compare-strings-in-bash/
+    
