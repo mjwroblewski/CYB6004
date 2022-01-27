@@ -3,7 +3,7 @@
 # Creates a new folder
 # Michael - 2022/01/24
 
-read -p "type the name of the folder you would like to create: " folderName
+read -p "    Type the name of the folder you would like to create: " folderName
 mkdir "$folderName"
 exit 0
 
