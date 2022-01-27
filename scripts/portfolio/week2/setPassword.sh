@@ -6,11 +6,11 @@
 
 # Michael - 2022/01/24
 
-read -p "Please enter folder name: " folder_var
+read -p "    Please enter folder name: " folder_var
 
   mkdir $folder_var
 
-read -sp "Please enter secret password: " password_var
+read -sp "    Please enter secret password: " password_var
 
   echo $password_var | sha256sum > secret.txt
 
