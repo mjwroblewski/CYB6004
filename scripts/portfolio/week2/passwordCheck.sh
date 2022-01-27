@@ -6,7 +6,7 @@
 # Michael - 2022/01/26
 
 # Read the password
-read -sp "Please enter your secret password: " var_passCheck
+read -sp "    Please enter your secret password: " var_passCheck
 
     # Hash the entered password
     var_checkHash=$(echo "$var_passCheck" | sha256sum)
@@ -19,7 +19,7 @@ read -sp "Please enter your secret password: " var_passCheck
 if [ "$var_sHash" = "$var_checkHash" ]; then
  
     # If the passwords match
-    echo "Access Granted"
+    echo " Access Granted"
 
     exit 0
 
