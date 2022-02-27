@@ -1,17 +1,28 @@
 #!/bin/bash
 
-# The script loops and displays an error message until the user enters the correct value.
-# Michael Wroblewski - 2022/02/17
+# Created by Michael Wroblewski
+# Date created - 2022/02/17
+# Date last modified - 2022/02/28
 
-printError()
+# Demonstrates use of functions and nested "while loops"
 
-{
+# The script asks the user to guess a number between two parameters
+# An error message is displayed when a guess is incorrect
+# The script loops continue until the correct number is guessed
+
+# When called, the "printError" function prints an error message in red text
+
+printError() {
+
     echo -e "\033[31mERROR:\033[0m $1" 
 }
 
-GuessNumber()
+# The "GuessNumber" function asks for a value between the 2nd and 3rd arguments
+# "While loops" call the "printError" function while guesses are incorrect
+# The loop breaks and script terminates when the correct values is entered
 
-{
+GuessNumber() {
+
     read -p "$1: "
     
     while (( $REPLY < $2 )); do
@@ -39,7 +50,13 @@ GuessNumber()
     done
     }
 
+
+###############
+# Main script #
+###############
+
 GuessNumber "Please guess a number between 1 and 100" 42
+
 
 # References
    # CYB6004.2022.AC1.OFFCAMPUS Scripting Languages

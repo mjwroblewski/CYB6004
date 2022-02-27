@@ -1,15 +1,21 @@
 #!/bin/bash 
 
-# Display computer's network information
-# Michael Wroblewski - 2022/02/19
+# Created by Michael Wroblewski
+# Date created - 2022/02/19
+# Date last modified - 2022/02/28
 
-#get info about networking from the ifconfig command 
+# Demonstrates the use of "sed" command
+# Script displays the computer's network information
 
-# $(ifconfig)" command has been deprecated, substitued with "$(ip a)" 
+###########################################################################
+# NOTE: The deprecated "ifconfig" command does not work and could not
+# be used in script "IpInfo.sh"
+# "ifconfig" was substituted with the "ip a" command
+###########################################################################
 
 net_info="$(ip a)" 
       
-#parse out the ip address lines using sed 
+# Parse out the ip address lines using sed 
       
 addresses=$(echo "$net_info" | sed -n '/inet / { 
       
@@ -23,7 +29,7 @@ p
       
 }') 
       
-#format output 
+# Outputs the IP addresses
       
 echo -e "IP addresses on this computer are:\n$addresses" 
 
