@@ -1,17 +1,22 @@
 #!/bin/bash
 
-# The script loops and displays an error message until the user enters the correct value. Updated in Week 5
-# Michael Wroblewski - 2022/02/21
+# Created by Michael Wroblewski
+# Date created - 2022/02/21
+# Date last modified - 2022/02/28
 
-printError()
 
-{
+# NOTE: Updated in Week 5
+# Demonstrates the use of regex to substitute text
+
+# The script loops and displays an error message until the user enters the correct value
+
+printError() {
+
     echo -e "\033[31mERROR:\033[0m $1" 
 }
 
-GuessNumber()
+GuessNumber() {
 
-{
     read -p "$1: "
     
     while (( $REPLY < $2 )); do
