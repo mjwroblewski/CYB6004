@@ -1,12 +1,20 @@
 #!/bin/bash
 
-# Extract selected user data from /etc/passwd and present it in a table
-# Michael Wroblewski - 2022/02/21
+# Created by Michael Wroblewski
+# Date created - 2022/02/21
+# Date last modified - 2022/02/28
+
+# Demonstrate use of "AWK" and setting field delimeters
+
+# Extract selected user data from /etc/passwd 
+# Present data in a table format
+# Table headings shown in brown
 
 echo "User Accounts:"
 
 # Set the field delimiter as a :
 awk -F":" '
+
 
 BEGIN {
     

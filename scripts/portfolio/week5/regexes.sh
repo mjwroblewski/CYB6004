@@ -1,35 +1,34 @@
 #!/bin/bash
 
-# A variety of regex commands
-# Michael Wroblewski - 2022/02/21
+# Created by Michael Wroblewski
+# Date created - 2022/02/21
+# Date last modified - 2022/02/28
 
-#Show only lines that start with 'echo'.     
+# Demonstrates the use of a variety of regex commands
+
+# Show only lines that start with 'echo'
     grep -r "^echo" 
 
- #Show only statements that contain an echo with a flag.    
+ # Show only statements that contain an echo with a flag.   
     grep -r 'echo -.*' 
      
-#Show only echo statements where the text is in double quotes and starts with an uppercase letter.
+# Show only echo statements where the text is in double quotes and starts with an uppercase letter
     grep -r 'echo .*\"[A-Z].*\"' 
      
-
-#Show only echo statements with text in double quotes that ends in an exclamation mark.
+# Show only echo statements with text in double quotes that ends in an exclamation mark
     grep -r 'echo .*\".*!\"' 
      
-#all sed statements
+# All sed statements
     grep -r "sed"
 
-#all lines that start with the letter m
+# All lines that start with the letter m
     grep -r "^m"
 
-#all lines that contain three digit numbers
+# All lines that contain three digit numbers
     grep -r '[0-9]{3}'
 
-#all echo statements with at least three words
+# All echo statements with at least three words
     grep -r 'echo (\w+\W+){3,}'
-
-#all lines that would make a good password (use your knowledge of cybersecurity to decide what makes a good password).
-
     
 
 # References
