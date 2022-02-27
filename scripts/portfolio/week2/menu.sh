@@ -1,23 +1,33 @@
 #!/bin/bash
 
-# Runs passwordCheck and inputs the exit codes into an IF statement
-# If the entered password is incorrect, the script terminates.
-# If the password is correct a menu is shown (READ statement)
-# Selecting a menu option triggers a CASE statement. Each option triggers a different script.
+# Created by Michael Wroblewski
+# Date created - 2022/01/27
+# Date last modified - 2022/02/27
 
-# Michael - 2022/01/27
+# Demonstrates use of exit codes as input values to control program flow
+# Demonstrates use of "IF" and "CASE statements
+
+# Script executes passwordCheck and inputs the exit codes into an IF statement
+# If the entered password is incorrect, the script terminates.
+# If the password is correct a menu is shown
+# Selecting a menu option triggers a CASE statement
+# Each option triggers a different script
+
+# Execute script "passwordCheck.sh"
 
 ./passwordCheck.sh
 
-# If password is incorrect
+# If exit value is not 0 the script terminates
+
 if [ $? -ne 0 ]; then
 
-echo "    Goodbye"
+echo "Goodbye"
 exit 0
 
 else
 
-# If password is correct
+# If exit value is 0 the menu is displayed
+
 read -p "
     1. Create a folder: 
     2. Copy a folder: 
@@ -27,39 +37,44 @@ read -p "
     echo "
     You selected $CHOICE
      "
-     # READ statement choices trigger different CASE statement script
+     # Entered value triggers a different CASE statement script
+
     case "$CHOICE" in
 
-       # Runs folderMaker
+       # Runs "folderMaker.sh" script
+
        1)
           "./folderMaker.sh" ;
-            echo "    Thank you, good bye"
+            echo "Thank you, good bye"
             exit 0
             ;;
 
-       # Runs folderCopier
+       # Runs "folderCopier.sh" script
+
        2)
             "./folderCopier.sh" ;
-            echo "    Thank you, good bye"
+            echo "Thank you, good bye"
             exit 0
             ;;
 
-       # Runs setPassword
+       # Runs "setPassword.sh" script
+
        3)
             "./setPassword.sh" ;
-            echo "    Thank you, good bye"
+            echo "Thank you, good bye"
             exit 0
             ;;
 
        # Option to quit the script
+
        4)   
-            echo "    Thank you, good bye"
+            echo "Thank you, good bye"
             exit 0 
             ;;
 
        # Invalid menu option entered
        *)
-            echo "    $CHOICE is not a valid response" ;
+            echo "$CHOICE is not a valid response" ;
             exit 0
             ;;
 

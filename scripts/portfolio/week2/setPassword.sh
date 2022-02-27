@@ -1,18 +1,32 @@
 #!/bin/bash
 
-# Creates a new folder and a hidden password
-# Creates a file called secret.txt containing the password which has been hashed
-# Moves secret.txt into folder
+# Created by Michael Wroblewski
+# Date created - 2022/01/24
+# Date last modified - 2022/02/27
 
-# Michael - 2022/01/24
+# Demonstrates use of the commands "read -sp" and "mv"
+# Demonstrates use of the operators ">" and "|"
+# Demonstrates use of cryptographic hashing using "sha256sum" function
 
-read -p "    Please enter folder name: " folder_var
+# The script creates a new folder and a password
+# The password is hashed and saved as "secret.txt"
+# "secret.txt" is then moved into the created folder
+# The script fails if user enters values including \/:*?"<>| in the folder name
 
-  mkdir $folder_var
+read -p "Please enter folder name: " folder_var
 
-read -sp "    Please enter secret password: " password_var
+mkdir $folder_var
 
-  echo $password_var | sha256sum > secret.txt
+# The "-s" flag stops the password from being displayed when enetered
+
+read -sp "Please enter secret password: " password_var
+
+# The password variable is piped "|" as an input to the "sha256sum" function
+# The hashed password is outputted ">" as new file "secret.txt"
+
+echo $password_var | sha256sum > secret.txt
+
+# "secret.txt" is moved into the new folder
 
 mv secret.txt $folder_var
 

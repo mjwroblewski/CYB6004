@@ -1,25 +1,33 @@
 #!/bin/bash
 
-# Copies an existing folder, displays an error if folder doesn't exist
-# Michael - 2022/01/24
+# Created by Michael Wroblewski
+# Date created - 2022/01/24
+# Date last modified - 2022/02/27
 
-read -p "    Type the name of the folder you would like to copy: " folderName
+# Demonstrates use of the "IF" function and "cp" command
 
-    # if the name is a valid directory
+# Creates, renames and saves a copy of an existing folder usung an IF statement
+# Displays an error if the folder name entered doesn't exist
+# The script fails if the copied and destination folder names are identical
+# The script fails if values including \/:*?"<>| are used in destination name
+
+read -p "Type the name of the folder you would like to copy: " folderName
+
+# Check if there is a directory with that name
 
 if [ -d "$folderName" ]; then
 
-    # copy it to a new location
+    read -p "Type the name of the destination folder: " newFolderName
 
-    read -p "    Type the name of the destination folder: " newFolderName
+    # Save a copy of the folder using the entered name
 
     cp -r "$folderName" "$newFolderName"
 
 else
 
-    # otherwise, print an error message
+    # If the folder doesn't exist, print an error message
 
-    echo "    I couldn't find that folder"
+    echo "I couldn't find that folder"
 
 fi
 
