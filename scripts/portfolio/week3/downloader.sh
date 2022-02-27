@@ -1,16 +1,24 @@
 #!/bin/bash
 
-# Download a webpage and save to selected location
-# Michael 2022/02/08
+# Created by Michael Wroblewski
+# Date created - 2022/02/08
+# Date last modified - 2022/02/28
+
+# Demonstrate use of webpage downloader "wget"
+# The script fails if a value other than "q" is entered to quit
+# The script fails if values including \/:*?"<>| are used in directory name
+
+# Download a webpage and save to a selected location
 
 echo "Welcome to the webpage downloader."
 
 read -p "Please type the webpage URL to download, or enter 'q' to quit: " URL
 
+    # Script terminates if user selects 'q'
+    # Script fails if a value other than "q" is entered to quit
+
 if [ "$URL" = "q" ]; then
     echo "Goodbye!"
-
-    # Script terminates if user selects 'q'
 
     exit 0
 

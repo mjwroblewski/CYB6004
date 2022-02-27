@@ -1,15 +1,26 @@
 #!/bin/bash
 
-# Calculator highlights the answer in a colour specific to the selected operator.
-# Michael - 2022/02/06
+# Created by Michael Wroblewski
+# Date created - 2022/02/06
+# Date last modified - 2022/02/27
+
+# Demonstrates use of text colour formatting
+# Demonstrates the use of the "bc" function
+
+# Calculator highlights answers in a colour specific to the selected operator
+
 
 echo "I am your basic calculator!"
 
 echo -e "I can add, subtract, multiply, and divide.\n"
 
+    # Copy both input values into variables
+
     read -p "Enter your first number: " numOne
 
     read -p "Enter your second number: " numTwo
+
+    # Display operation options 1 to 4 in different colours
 
     echo "Please select an operation:"
 
@@ -19,6 +30,9 @@ echo -e "I can add, subtract, multiply, and divide.\n"
         echo -e "\033[35m 4. Division \e[0m"
     read operator
 
+# The two variables and the operator are piped into the "bc" function
+# Calculation and answer are displayed in the colour specific to the operation
+
 case $operator in
 1)
     res=`echo "scale=0; $numOne+$numTwo" | bc`
@@ -26,7 +40,7 @@ case $operator in
     ;;
 2)
     res=`echo "scale=0; $numOne-$numTwo" | bc`
-        echo -e "\033[32m"$numOne less $numTwo equals $res"\e[0m"
+        echo -e "\033[32m"$numOne minus $numTwo equals $res"\e[0m"
     ;;
 3)
     res=`echo "scale=0; $numOne*$numTwo" | bc`

@@ -1,22 +1,24 @@
 #!/bin/bash
 
-# Runs passwordCheck and inputs the exit codes into an IF statement
-# If the entered password is incorrect, the script terminates.
-# If the password is correct a menu is shown (READ statement)
-# Selecting a menu option triggers a CASE statement. Each option triggers a different script.
+# Created by Michael Wroblewski
+# Date created - 2022/02/08
+# Date last modified - 2022/02/28
 
-# Michael - 2022/02/08
+# Demonstrates integration of scripts and functions from earlier exercises
+
+# Runs "passwordCheck.sh" script and inputs the exit codes into an IF statement
 
 ./passwordCheck.sh
 
-# If password is incorrect
+# If the entered password is incorrect, the script terminates
+
 if [ $? -ne 0 ]; then
 
-exit 0
+exit 1
 
 else
 
-# If password is correct
+# If password is correct a menu is displayed in brown text
 
 echo -e "
     \033[33mSelect an option:\033[36m"
@@ -32,55 +34,58 @@ read -sp "
     8. Quit:     
     " CHOICE
 
-echo -e "\033[32mYou selected $CHOICE
-\e[0m"
+# Displays the selected menu option in green text
 
-     # READ statement choices trigger different CASE statement script
+echo -e "\033[32mYou selected $CHOICE \e[0m"
+
+# Selecting a menu option triggers a CASE statement
+# CASE statement executes the selected script and then terminates
+
     case "$CHOICE" in
 
-       # Runs folderMaker.sh
+       # Runs "folderMaker.sh" script
        1)
           "./folderMaker.sh" ;
             echo "Thank you, good bye"
             exit 0
             ;;
 
-       # Runs folderCopier.sh
+       # Runs "folderCopier.sh" script
        2)
             "./folderCopier.sh" ;
             echo "Thank you, good bye"
             exit 0
             ;;
 
-       # Runs setPassword.sh
+       # Runs "setPassword.sh" script
        3)
             "./setPassword.sh" ;
             echo "Thank you, good bye"
             exit 0
             ;;
 
-       # Runs calculator.sh
+       # Runs "calculator.sh" script
        4)
             "./calculator.sh" ;
             echo "Thank you, good bye"
             exit 0
             ;;
 
-       # Runs megafoldermaker.sh
+       # Runs "megafoldermaker.sh" script
        5)
             "./megafoldermaker.sh" ;
             echo "Thank you, good bye"
             exit 0
             ;;
 
-       # Runs filenames.sh
+       # Runs "filenames.sh" script
        6)
             "./filenames.sh" ;
             echo "Thank you, good bye"
             exit 0
             ;;
 
-       # Runs downloader.sh
+       # Runs "downloader.sh" script
        7)
             "./downloader.sh" ;
             echo "Thank you, good bye"
@@ -89,7 +94,7 @@ echo -e "\033[32mYou selected $CHOICE
 
        # Option to quit the script
        8)   
-            echo "Thank you, good bye"
+            echo "Thanks anyway, good bye"
             exit 0 
             ;;
 

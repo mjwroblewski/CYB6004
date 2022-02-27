@@ -1,7 +1,13 @@
 #!/bin/bash
 
+# Created by Michael Wroblewski
+# Date created - 2022/02/12
+# Date last modified - 2022/02/27
+
+# Demonstrates use of the "grep" function and "while loop"
+
 # Check whether files and directories listed in "filenames.txt" are in "week3" folder
-# Michael - 2022/02/12
+
 
 grep -v '^[[:space:]]*$' filenames.txt |
 
