@@ -95,6 +95,35 @@ Exploit_unsuccessful=hack{46,52}
 # FUNCTIONS #
 #############
 
+# "Password_check" function checks the user's credentials against the password
+# Password is encrypted in a .txt file "Password/not_a_password.txt"
+
+    function password_unlock() {
+
+        read -sp "Database is locked. Please enter your password: " Pass_unlock
+
+        Pass_unlock_hash=$(echo "$Pass_unlock" | sha256sum)
+        Pass_lock="Password/not_a_password.txt"
+        Pass_lock_hash=$(cat "$Pass_lock")
+
+        # If password is incorrect
+
+        if [ "$Pass_lock_hash" -ne "$Pass_unlock_hash" ]; then
+
+            echo "Access Denied"
+
+            exit 1
+
+        # If password is correct
+
+        else
+
+            echo "Access Granted"
+
+            exit 0
+
+        fi
+
 # "dump_webpage" function scrapes the webpage using "curl"
 # Calls "check_errors" function, output error message if scrape is unsuccessful
 # Outputs data to $dumpfile
@@ -225,6 +254,34 @@ Exploit_unsuccessful=hack{46,52}
 
     } 
 
+# "Password_check" function checks the user's credentials against the password
+# Password is encrypted in a .txt file "Password/not_a_password.txt"
+
+    function password_unlock() {
+
+        read -sp "Database is locked. Please enter your password: " Pass_unlock
+
+        Pass_unlock_hash=$(echo "$Pass_unlock" | sha256sum)
+        Pass_lock="Password/not_a_password.txt"
+        Pass_lock_hash=$(cat "$Pass_lock")
+
+        # If password is incorrect
+
+        if [ "$Pass_lock_hash" -ne "$Pass_unlock_hash" ]; then
+
+            echo "Access Denied"
+
+            exit 1
+
+        # If password is correct
+
+        else
+
+            echo "Access Granted"
+
+        
+
+        
 
 # Extract selected all data from $arraysfile and present it in a table format
 
@@ -256,6 +313,9 @@ Exploit_unsuccessful=hack{46,52}
     }
 
  
+
+
+
 #########################
 # MENUS
 
