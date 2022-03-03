@@ -43,68 +43,68 @@ url="https://cryptosec.info/exchange-hacks/"
 
 # Hacking event variables
 # Year
-2011=hack{1,2}
-2012=hack{3,4,5,6}
-2013=hack{7,8,9}
-2014=hack{10,11,12,13,14,15,16}
-2015=hack{17,18,19,20,21}
-2016=hack{22,23,24,25}
-2017=hack{26,27,28}
-2018=hack{29,30,31,32,33,34,35,36}
-2019=hack{37,38,39,40,41,42,43,44}
-2020=hack{45,46,47,48,49,50}
-2021=hack{51,52,53,54,55}
-2022=hack56
+Y_2011=hack{1,2}
+Y_2012=hack{3,4,5,6}
+Y_2013=hack{7,8,9}
+Y_2014=hack{10,11,12,13,14,15,16}
+Y_2015=hack{17,18,19,20,21}
+Y_2016=hack{22,23,24,25}
+Y_2017=hack{26,27,28}
+Y_2018=hack{29,30,31,32,33,34,35,36}
+Y_2019=hack{37,38,39,40,41,42,43,44}
+Y_2020=hack{45,46,47,48,49,50}
+Y_2021=hack{51,52,53,54,55}
+Y_2022=hack56
 
 # Currency
-Currency_Bitcoin=hack{1,3,4,5,6,8,9,10,11,12,13,17,18,19,20,21,24,25,26,29}
-Currency_cash=hack43
-Currency_EOS=hack41
-Currency_Ethereum=hack44
-Currency_Multiple=hack{7,14,16,22,23,32,33,35,37,45,56}
-Currency_NEM=hack30
-Currency_Nano=hack31
-Currency_Vericoin=hack15
-Currency_undisclosed_stolen=hack{28,34,49,40,42,48,49,51,53,54,55}
+C_Bitcoin=hack{1,3,4,5,6,8,9,10,11,12,13,17,18,19,20,21,24,25,26,29}
+C_cash=hack43
+C_EOS=hack41
+C_Ethereum=hack44
+C_Multiple=hack{7,14,16,22,23,32,33,35,37,45,56}
+C_NEM=hack30
+C_Nano=hack31
+C_Vericoin=hack15
+C_undisclosed_stolen=hack{28,34,49,40,42,48,49,51,53,54,55}
 Data=hack{2,27,38,46,47,50,52}
 
 # Units stolen
-Units_0-99=hack{13,29}
-Units_100-999=hack{8,9,11,14,18,19,21,26}
-Units_1000-9999hack{3,4,5,6,17,20}
-Units_10000-99999=hack{7,10,12,16,22,24,44}
-Units_100000-999999=hack{}
-Units_1000000-9999999=hack{15}
-Units_10000000-99999999=hack{31,37,43}
-Units_>100000000=hack{30}
-Units_undisclosed=hack{1,23,25,28,32,33,34,35,36,39,40,41,42,43,45,48,49,51,53,54,55,56}
+U_0-99=hack{13,29}
+U_100-999=hack{8,9,11,14,18,19,21,26}
+U_1000-9999hack{3,4,5,6,17,20}
+U_10000-99999=hack{7,10,12,16,22,24,44}
+U_100000-999999=hack{}
+U_1000000-9999999=hack{15}
+U_10000000-99999999=hack{31,37,43}
+U_>100000000=hack{30}
+U_undisclosed=hack{1,23,25,28,32,33,34,35,36,39,40,41,42,43,45,48,49,51,53,54,55,56}
 
 # Value stolen
-Val_49999=hack{29,51}
-Val_50000-99999=hack{4,13,45}
-Val_100000-499999=hack{3,5,6,7,18,21,23,49}
-Val_500000-999999=hack{12,14,20}
-Val_1000000-4999999=hack{9,11,15,19,22,25,26,37,42}
-Val_5000000-9999999=hack{1,16,17,48,56}
-Val_10000000-49999999=hack{32,33,34,41,43,44}
-Val_50000000-99999999=hack{24,35,53,55}
-Val_>100000000=hack{10,30,31,40,54}
-Val_undisclosed=hack{1,23,25,28,32,33,34,35,36,39,40,41,42,43,45,48,49,51,53,54,55,56}
+V_49999=hack{29,51}
+V_50000-99999=hack{4,13,45}
+V_100000-499999=hack{3,5,6,7,18,21,23,49}
+V_500000-999999=hack{12,14,20}
+V_1000000-4999999=hack{9,11,15,19,22,25,26,37,42}
+V_5000000-9999999=hack{1,16,17,48,56}
+V_10000000-49999999=hack{32,33,34,41,43,44}
+V_50000000-99999999=hack{24,35,53,55}
+V_>100000000=hack{10,30,31,40,54}
+V_undisclosed=hack{1,23,25,28,32,33,34,35,36,39,40,41,42,43,45,48,49,51,53,54,55,56}
 
 # Currency returned
-Returned_all=hack{5,12,13,14,51}
-Returned_none=hack{1,3,4,6,7,8,9,10,11,15,16,17,18,19,20,21,22,23,24,25,26,29,30,31,32,33,34,35,37,40,41,42,43,44,45,48,49,53,54,55,56}
-Returned_undisclosed=hack{28,36,39}
+R_all=hack{5,12,13,14,51}
+R_none=hack{1,3,4,6,7,8,9,10,11,15,16,17,18,19,20,21,22,23,24,25,26,29,30,31,32,33,34,35,37,40,41,42,43,44,45,48,49,53,54,55,56}
+R_undisclosed=hack{28,36,39}
 
 # Hack exploit
-Exploit_hot=hack{3,4,12,15,20,21,23,43,44,49,53,56}
-Exploit_cold=hack{11,17,19}
-Exploit_credentials=hack{1,4}
-Exploit_error=hack{18}
-Exploit_internal=hack{41}
-Exploit_server=hack{9}
-Exploit_undisclosed=hack{2,5,6,8,10,13,14,16,22,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,42,45,47,48,50,51,54,55}
-Exploit_unsuccessful=hack{46,52}
+E_hot=hack{3,4,12,15,20,21,23,43,44,49,53,56}
+E_cold=hack{11,17,19}
+E_credentials=hack{1,4}
+E_error=hack{18}
+E_internal=hack{41}
+E_server=hack{9}
+E_undisclosed=hack{2,5,6,8,10,13,14,16,22,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,42,45,47,48,50,51,54,55}
+E_unsuccessful=hack{46,52}
 
 
 #############
@@ -265,21 +265,99 @@ Exploit_unsuccessful=hack{46,52}
         
         fi
 
+        # Script menu is modular and interactive. Menu and sub-menu options call specific functions
+        # "menu_main" is the top menu
+
         function menu_main() {
         }
             echo $blue'Welcome to the Crypto Exchange Hacking Event Database.'
-            echo
             echo 'It comprises a record of hacking events undertaken against crypocurrency exchanges between 2011 and 2022.'$clear
             echo
-            echo $yellow'Please make a selection: '$clear
+            echo $yellow'MAIN MENU'$clear
+            echo
+            echo $cyan'Please make a selection: '$clear
+            read -p "
+                1. Show all hacking event data
+                2. Search by year
+                3. Search by currency stolen
+                4. Search by number of units stolen
+                5. Search by value stolen
+                6. Search by funds recovered
+                7. Search by exploit
+                8. Exit
+                " choice_menu_main
+
+                case "$choice_menu_main" in
+
+                    1)
+                        # Call menu_1 function
+                        menu_1 ;;
+                    2)
+                        # Call menu_2 function
+                        menu_2 ;;
+                    3)
+                        # Call menu_3 function
+                        menu_3 ;;
+                    4)
+                        # Call menu_4 function
+                        menu_4 ;;
+                    5)
+                        # Call menu_5 function
+                        menu_5 ;;
+                    6)
+                        # Call menu_6 function
+                        menu_6 ;;
+                    7)
+                        # Call menu_7 function
+                        menu_7 ;;
+                    8)
+                        # Call exit_menu function
+                        menu_exit ;;
+                    *)
+                        # Call error function
+                        menu_error ;;
+
+                esac
+
+
+    function menu_exit() {
+        echo "Goodbye, thanks for visiting!"
+        exit 0
+    }
+
+    # "menu_error" function redirect user to "menu_main"
+    function menu_error() {
+        echo $red"That is not a valid response. Please select again..."$clear
+        menu_main
+    }
+
+
+    function menu_1() {
+        read -p "
+            1. Show all data
+            2. Back
+            3. Exit
+            " choice_menu_1
+
+            case "$choice_menu_1" in
+
+                1)
+                    # Call menu_1_all_data function. Outputs all data as a table
+                    menu_1_all_data ;;
+                2)
+                    menu_main ;;
+                3)
+                    menu_exit ;;
+                *)
+                    menu_error ;;
+    }
+    )       esac
 
 
 # Extract selected all data from $arraysfile and present it in a table format
-
-
 # Set the field delimiter as a :
 
-    function table_all_data() {
+    function menu_1_all_data() {
 
         awk -F":" '
 
@@ -302,242 +380,337 @@ Exploit_unsuccessful=hack{46,52}
 
     }
 
- 
+    function menu_2() {
+        read -p "
+            1. Select a year
+            2. Back
+            3. Exit
+            " choice_menu_2
+            case "$choice_menu_1" in
 
+                1)
+                    # Call menu_2_1 function
+                    menu_2_1 ;;
+                2)
+                    menu_2 ;;
+                3)
+                    menu_exit ;;
+                *)
+                    menu_error ;;
+    }
+    )       esac
+
+    function menu_2_1() {
+        read -p "
+            1. 2011
+            2. 2012
+            3. 2013
+            4. 2014
+            5. 2015
+            6. 2016
+            7, 2017
+            8. 2018
+            9. 2019
+            10. 2020
+            11. 2021
+            12. 2022
+            13. Back
+            14. Exit
+            " choice_menu_2_1
+
+            case "$choice_menu_2_1" in
+                # Call "year" function
+                1)
+                    Y_2011 ;;
+                2)
+                    Y_2012 ;;
+                3)
+                    Y_2013 ;;
+                4)
+                    Y_2014 ;;
+                5)
+                    Y_2015 ;;
+                6)
+                    Y_2016 ;;
+                7)
+                    Y_2017 ;;
+                8)
+                    Y_2018 ;;
+                9)
+                    Y_2019;;
+                10)
+                    Y_2020 ;;
+                11)
+                    Y_2021 ;;
+                12)
+                    Y_2022 ;;
+                13)
+                    menu_2 ;;
+                14)
+                    menu_exit
+
+
+
+
+    function menu_3() {
+
+
+    }
+
+    function menu_4() {
+
+
+    }
+
+
+    function menu_5() {
+
+
+    }
+
+    function menu_6() {
+
+
+    }
+
+
+    function menu_7() {
+
+
+    }
 
 
 #########################
 # MENUS
 
-# Main menu                                     > $menu_main
+# Main menu                                     # $menu_main
     # OPTIONS
-        # 1. Show all hacking event data        > $menu_1.0
-            # 1.1 Show all data                 > $table_all_data
-            # 1.2 Back                          > $menu_main
-            # 1.3 Exit                          > $exit
-        # 2. Search hacks by year(s)            
-            # Enter a year                      > $menu_2.0
-                # 2.1 2011                      > $menu_2.1
-                    # 2.1.1 Summary             > $2011
-                    # 2.1.2 Back                > $menu_2.0
-                    # 2.1.3 Exit                > $exit
-                # 2.2 2012                      > $menu_2.2
-                    # 2.2.1 Summary             > $2012
-                    # 2.2.2 Back                > $menu_2.0
+        # 1. Show all hacking event data        # $menu_1
+            # 1.1 Show all data                 # function menu_1_1_all_data()
+            # 1.2 Back                          # $menu_main
+            # 1.3 Exit                          # $exit
+        # 2. Search by year                     # $menu_2
+                # 2.1 2011                      # $menu_2_1
+                    # 2.1.1 Summary             # $Y_2011
+                    # 2.1.2 Back                # $menu_2
+                    # 2.1.3 Exit                # $exit
+                # 2.2 2012                      # $menu_2_2
+                    # 2.2.1 Summary             > $Y_2012
+                    # 2.2.2 Back                > $menu_2
                     # 2.2.2 Exit                > $exit
-                # 2.3 2013                      > $menu_2.3
-                    # 2.3.1 Summary             > $2013
-                    # 2.3.2 Back                > $menu_2.0
+                # 2.3 2013                      > $menu_2_3
+                    # 2.3.1 Summary             > $Y_2013
+                    # 2.3.2 Back                > $menu_2
                     # 2.3.3 Exit                > $exit
-                # 2.4 2014                      > $menu_2.4
-                    # 2.4.1 Summary             > $2014
-                    # 2.4.2 Back                > $menu_2.0
+                # 2.4 2014                      > $menu_2_4
+                    # 2.4.1 Summary             > $Y_2014
+                    # 2.4.2 Back                > $menu_2
                     # 2.4.3 Exit                > $exit            
-                # 2.5 2015                      > $menu_2.5
-                    # 2.5.1 Summary             > $2015
-                    # 2.5.2 Back                > $menu_2.0
+                # 2.5 2015                      > $menu_2_5
+                    # 2.5.1 Summary             > $Y_2015
+                    # 2.5.2 Back                > $menu_2
                     # 2.5.3 Exit                > $exit
-                # 2.6 2016                      > $menu_2.6
-                    # 2.6.1 Summary             > $2016
-                    # 2.6.2 Back                > $menu_2.0
+                # 2.6 2016                      > $menu_2_6
+                    # 2.6.1 Summary             > $Y_2016
+                    # 2.6.2 Back                > $menu_2
                     # 2.6.3 Exit                > $exit                
-                # 2.7 2017                      > $menu_2.7
-                    # 2.7.1 Summary             > $2017
-                    # 2.7.2 Back                > $menu_2.0
+                # 2.7 2017                      > $menu_2_7
+                    # 2.7.1 Summary             > $Y_2017
+                    # 2.7.2 Back                > $menu_2
                     # 2.7.3 Exit                > $exit
-                # 2.8 2018                      > $menu_2.8
-                    # 2.8.1 Summary             > $2018
-                    # 2.8.2 Back                > $menu_2.0
+                # 2.8 2018                      > $menu_2_8
+                    # 2.8.1 Summary             > $Y_2018
+                    # 2.8.2 Back                > $menu_2
                     # 2.8.3 Exit                > $exit
-                # 2.9 2019                      > $menu_2.9
-                    # 2.9.1 Summary             > $2019
-                    # 2.9.2 Back                > $menu_2.0
+                # 2.9 2019                      > $menu_2_9
+                    # 2.9.1 Summary             > $Y_2019
+                    # 2.9.2 Back                > $menu_2
                     # 2.9.3 Exit                > $exit
-                # 2.10 2020                     > $menu_2.10
-                    # 2.10.1 Summary            > $2020
-                    # 2.10.2 Back               > $menu_2.0
+                # 2.10 2020                     > $menu_2_10
+                    # 2.10.1 Summary            > $Y_2020
+                    # 2.10.2 Back               > $menu_2
                     # 2.10.3 Exit               > $exit
-                # 2.11 2021                     > $menu_2.11
-                    # 2.11.1 Summary            > $2021
-                    # 2.11.2 Back               > $menu_2.0
+                # 2.11 2021                     > $menu_2_11
+                    # 2.11.1 Summary            > $Y_2021
+                    # 2.11.2 Back               > $menu_2
                     # 2.11.3 Exit               > $exit
-                # 2.12 2022                     > $menu_2.12
-                    # 2.12.1 Summary            > $2022
-                    # 2.12.2 Back               > $menu_2.0
+                # 2.12 2022                     > $menu_2_12
+                    # 2.12.1 Summary            > $Y_2022
+                    # 2.12.2 Back               > $menu_2
                     # 2.12.3 Exit               > $exit
                 # 2.13 Back                     > $menu_main
                 # 2.14 Exit                     > $exit
 
-        # 3. Search by currency stolen          > $menu_3.0
-            # 3.1 Bitcoin                       > $menu_3.1
-                # 3.1.1 Summary                 > $Currency_Bitcoin
-                # 3.1.2 Back                    > $menu_3.0
+        # 3. Search by currency stolen          > $menu_3
+            # 3.1 Bitcoin                       > $menu_3_1
+                # 3.1.1 Summary                 > $C_Bitcoin
+                # 3.1.2 Back                    > $menu_3
                 # 3.1.3 exit                    > $exit
-            # 3.2 EOS                           > $menu_3.2
-                # 3.2.1 Summary                 > $Currency_EOS
-                # 3.2.2 Back                    > $menu_3.0
+            # 3.2 EOS                           > $menu_3_2
+                # 3.2.1 Summary                 > $C_EOS
+                # 3.2.2 Back                    > $menu_3
                 # 3.2.3 Exit                    > $exit
-            # 3.3 Ethereum                      > $menu_3.3
-                # 3.3.1 Summary                 > $Currency_Ethereum
-                # 3.3.2 Back                    > $menu_3.0
+            # 3.3 Ethereum                      > $menu_3_3
+                # 3.3.1 Summary                 > $C_Ethereum
+                # 3.3.2 Back                    > $menu_3
                 # 3.3.3 Exit                    > $exit
-            # 3.4 NEM                           > $menu_3.4
-                # 3.4.1 Summary                 > $Currency_NEM
-                # 3.4.2 Back                    > $menu_3.0
+            # 3.4 NEM                           > $menu_3_4
+                # 3.4.1 Summary                 > $C_NEM
+                # 3.4.2 Back                    > $menu_3
                 # 3.4.3 Exit                    > $exit
-            # 3.5 Nano                          > $menu_3.5
-                # 3.5.1 Summary                 > $Currency_Nano
-                # 3.5.2 Back                    > $menu_3.0
+            # 3.5 Nano                          > $menu_3_5
+                # 3.5.1 Summary                 > $C_Nano
+                # 3.5.2 Back                    > $menu_3
                 # 3.5.3 Exit                    > $exit
-            # 3.6 Vericoin                      > $menu_3.6
-                # 3.6.1 Summary                 > $Currency_Verizon
-                # 3.6.2 Back                    > $menu_3.0
+            # 3.6 Vericoin                      > $menu_3_6
+                # 3.6.1 Summary                 > $C_Verizon
+                # 3.6.2 Back                    > $menu_3
                 # 3.6.3 Exit                    > $exit
-            # 3.7 Multiple currencies           > $menu_3.7
-                # 3.7.1 Summary                 > $Currency_multiple
-                # 3.7.2 Back                    > $menu_3.0
+            # 3.7 Multiple currencies           > $menu_3_7
+                # 3.7.1 Summary                 > $C_multiple
+                # 3.7.2 Back                    > $menu_3
                 # 3.7.3 Exit                    > $exit
-            # 3.8 Undisclosed                   > $menu_3.8
-                # 3.8.1 Summary                 > $Currency_undisclosed
-                # 3.8.2 Back                    > $menu_3.0
+            # 3.8 Undisclosed                   > $menu_3_8
+                # 3.8.1 Summary                 > $C_undisclosed
+                # 3.8.2 Back                    > $menu_3
                 # 3.8.3 Exit                    > $exit
-            # 3.9 Cash only                     > $menu_3.9
-                # 3.9.1 Summary                 > $Currency_cash
-                # 3.9.2 Back                    > $menu_3.0
+            # 3.9 Cash only                     > $menu_3_9
+                # 3.9.1 Summary                 > $C_cash
+                # 3.9.2 Back                    > $menu_3
                 # 3.9.3 Exit                    > $exit
-            # 3.10 Data only                    > $menu_3.10
+            # 3.10 Data only                    > $menu_3_10
                 # 3.10.1 Summary                > $Data
-                # 3.10.2 Back                   > $menu_3.0
+                # 3.10.2 Back                   > $menu_3
                 # 3.10.3 Exit                   > $exit
             # 3.11 Back                         > $menu_main
             # 3.12 Exit                         > $exit
         
-        # 4. Search by number of units stolen   > $menu_4.0
-            # 4.1 <100                          > $menu_4.1
-                # 4.1.1 Summary                 > $Units_0-99
-                # 4.1.2 Back                    > $menu_4.0
+        # 4. Search by number of units stolen   > $menu_4
+            # 4.1 <100                          > $menu_4_1
+                # 4.1.1 Summary                 > $U_0-99
+                # 4.1.2 Back                    > $menu_4
                 # 4.1.3 Exit                    > $exit
-            # 4.2 100 - 999                     > $menu_4.2
-                # 4.2.1 Summary                 > $Units_100-999
-                # 4.2.2 Back                    > $menu_4.0
+            # 4.2 100 - 999                     > $menu_4_2
+                # 4.2.1 Summary                 > $U_100-999
+                # 4.2.2 Back                    > $menu_4
                 # 4.2.3 Exit                    > $exit
-            # 4.3 1,000 - 9,999                 > $menu_4.3
-                # 4.3.1 Summary                 > $Units_1000-9999
-                # 4.3.2 Back                    > $menu_4.0
+            # 4.3 1,000 - 9,999                 > $menu_4_3
+                # 4.3.1 Summary                 > $U_1000-9999
+                # 4.3.2 Back                    > $menu_4
                 # 4.3.3 Exit                    > $exit    
-            # 4.4 10,000 - 99,999               > $menu_4.4
-                # 4.4.1 Summary                 > $Units_10000-99999
-                # 4.4.2 Back                    > $menu_4.0
+            # 4.4 10,000 - 99,999               > $menu_4_4
+                # 4.4.1 Summary                 > $U_10000-99999
+                # 4.4.2 Back                    > $menu_4
                 # 4.4.3 Exit                    > $exit
-            # 4.5 100,000 - 999,999             > $menu_4.5
-                # 4.5.1 Summary                 > $Units_100000-999999
-                # 4.5.2 Back                    > $menu_4.0
+            # 4.5 100,000 - 999,999             > $menu_4_5
+                # 4.5.1 Summary                 > $U_100000-999999
+                # 4.5.2 Back                    > $menu_4
                 # 4.5.3 Exit                    > $exit
-            # 4.6 1,000,000 - 9,999,999         > $menu_4.6
-                # 4.6.1 Summary                 > $Units_1000000-9999999
-                # 4.6.2 Back                    > $menu_4.0
+            # 4.6 1,000,000 - 9,999,999         > $menu_4_6
+                # 4.6.1 Summary                 > $U_1000000-9999999
+                # 4.6.2 Back                    > $menu_4
                 # 4.6.3 Exit                    > $exit
-            # 4.7 10,000,000 - 99,999,999       > $menu_4.7
-                # 4.7.1 Summary                 > $Units_10000000-99999999
-                # 4.7.2 Back                    > $menu_4.0
+            # 4.7 10,000,000 - 99,999,999       > $menu_4_7
+                # 4.7.1 Summary                 > $U_10000000-99999999
+                # 4.7.2 Back                    > $menu_4
                 # 4.7.3 Exit                    > $exit
-            # 4.8 > 100,000,000                 > $menu_4.8
-                # 4.8.1 Summary                 > $Units_>100000000
-                # 4.8.2 Back                    > $menu_4.0
+            # 4.8 > 100,000,000                 > $menu_4_8
+                # 4.8.1 Summary                 > $U_>100000000
+                # 4.8.2 Back                    > $menu_4
                 # 4.8.3 Exit                    > $exit
-            # 4.9 Undisclosed                   > $menu_4.9
-                # 4.9.1 Summary                 > $Units_undisclosed
-                # 4.9.2 Back                    > $menu_4.0
+            # 4.9 Undisclosed                   > $menu_4_9
+                # 4.9.1 Summary                 > $U_undisclosed
+                # 4.9.2 Back                    > $menu_4
                 # 4.9.3 Exit                    > $exit
 
-        # 5. Search by value stolen             > $menu_5.0
-            # 5.1 <$50,000                      > $menu_5.1
-                # 5.1.1 Summary                 > $Val_49999
-                # 5.1.2 Back                    > $menu_5.1
+        # 5. Search by value stolen             > $menu_5
+            # 5.1 <$50,000                      > $menu_5_1
+                # 5.1.1 Summary                 > $V_49999
+                # 5.1.2 Back                    > $menu_5
                 # 5.1.3 Exit                    > $exit
-            # 5.2 $50,000 - $99,999             > $menu_5.2
-                # 5.2.1 Summary                 > $Val_50000-99999
-                # 5.2.2 Back                    > $menu_5.0
+            # 5.2 $50,000 - $99,999             > $menu_5_2
+                # 5.2.1 Summary                 > $V_50000-99999
+                # 5.2.2 Back                    > $menu_5
                 # 5.2.3 Exit                    > $exit
-            # 5.3 $100,000 - $499,999           > $menu_5.3
-                # 5.3.1 Summary                 > $Val_100000-499999
-                # 5.3.2 Back                    > $menu_5.0
+            # 5.3 $100,000 - $499,999           > $menu_5_3
+                # 5.3.1 Summary                 > $V_100000-499999
+                # 5.3.2 Back                    > $menu_5
                 # 5.3.3 Exit                    > $exit
-            # 5.4 $500,000 - $999,999           > $menu_5.4
-                # 5.4.1 Summary                 > $Val_500000-999999
-                # 5.4.2 Back                    > $menu_5.0
+            # 5.4 $500,000 - $999,999           > $menu_5_4
+                # 5.4.1 Summary                 > $V_500000-999999
+                # 5.4.2 Back                    > $menu_5
                 # 5.4.3 Exit                    > $exit
-            # 5.5 $1,000,000 - $4,999,999       > $menu_5.5
-                # 5.5.1 Summary                 > $Val_1000000-4999999
-                # 5.5.2 Back                    > $menu_5.0
+            # 5.5 $1,000,000 - $4,999,999       > $menu_5_5
+                # 5.5.1 Summary                 > $V_1000000-4999999
+                # 5.5.2 Back                    > $menu_5
                 # 5.5.3 Exit                    > $exit   
-            # 5.6 $5,000,000 - $9,999,999       > $menu_5.6
-                # 5.6.1 Summary                 > $Val_5000000-9999999
-                # 5.6.2 Back                    > $menu_5.0
+            # 5.6 $5,000,000 - $9,999,999       > $menu_5_6
+                # 5.6.1 Summary                 > $V_5000000-9999999
+                # 5.6.2 Back                    > $menu_5
                 # 5.6.3 Exit                    > $exit
-            # 5.7 $10,000,000 - $49,999,999     > $menu_5.7
-                # 5.7.1 Summary                 > $Val_10000000-49999999
-                # 5.7.2 Back                    > $menu_5.0
+            # 5.7 $10,000,000 - $49,999,999     > $menu_5_7
+                # 5.7.1 Summary                 > $V_10000000-49999999
+                # 5.7.2 Back                    > $menu_5
                 # 5.7.3 Exit                    > $exit
-            # 5.8 $50,000,000 - $99,999,999     > $menu_5.8
-                # 5.8.1 Summary                 > $Val_50000000-99999999
-                # 5.8.2 Back                    > $menu_5.0
+            # 5.8 $50,000,000 - $99,999,999     > $menu_5_8
+                # 5.8.1 Summary                 > $V_50000000-99999999
+                # 5.8.2 Back                    > $menu_5
                 # 5.8.3 Exit                    > $exit
-            # 5.9 > $100,000,000                > $menu_5.9
-                # 5.9.1 Summary                 > $Val_>100000000
-                # 5.9.2 Back                    > $menu_5.0
+            # 5.9 > $100,000,000                > $menu_5_9
+                # 5.9.1 Summary                 > $V_>100000000
+                # 5.9.2 Back                    > $menu_5
                 # 5.9.3 Exit                    > $exit
             # 5.10 Back                         > $menu_main
             # 5.11 Exit                         > $exit
          
-        # 6. Search by funds recovered          > $menu_6.0
-            # 6.1 Yes                           > $menu_6.1
-                # 6.1.1 Summary                 > $Returned_all
-                # 6.1.2 Back                    > $menu_6.0
+        # 6. Search by funds recovered          > $menu_6
+            # 6.1 Yes                           > $menu_6_1
+                # 6.1.1 Summary                 > $R_all
+                # 6.1.2 Back                    > $menu_6
                 # 6.1.3 Exit                    > $exit
-            # 6.2 No                            > $menu_6.2
-                # 6.2.1 Summary                 > $Returned_none
-                # 6.2.2 Back                    > $menu_6.0
+            # 6.2 No                            > $menu_6_2
+                # 6.2.1 Summary                 > $R_none
+                # 6.2.2 Back                    > $menu_6
                 # 6.2.3 Exit                    > $exit
-            # 6.3 Undisclosed                   > $menu_6.3
-                # 6.3.1 Summary                 > $Returned_undisclosed
-                # 6.3.2 Back                    > $menu_6.0
+            # 6.3 Undisclosed                   > $menu_6_3
+                # 6.3.1 Summary                 > $R_undisclosed
+                # 6.3.2 Back                    > $menu_6
                 # 6.3.3 Exit                    > $exit
             # 6.4 Back                          > $menu_main
             # 6.5 Exit                          > $exit
 
-        # 7. Search by exploit                  > $menu_7.0
-            # 7.1 Hot wallet                    > $menu_7.1
-                # 7.1.1 Summary                 > $Exploit_hot
-                # 7.1.2 Back                    > $menu_7.0
+        # 7. Search by exploit                  > $menu_7
+            # 7.1 Hot wallet                    > $menu_7_1
+                # 7.1.1 Summary                 > $E_hot
+                # 7.1.2 Back                    > $menu_7
                 # 7.1.3 Exit                    > $exit
-            # 7.2 Cold wallet                   > $menu_7.2
-                # 7.2.1 Summary                 > $Exploit_cold
-                # 7.2.2 Back                    > $menu_7.0
+            # 7.2 Cold wallet                   > $menu_7_2
+                # 7.2.1 Summary                 > $E_cold
+                # 7.2.2 Back                    > $menu_7
                 # 7.2.3 Exit                    > $exit     
-            # 7.3 Credential theft              > $menu_7.3
-                # 7.3.1 Summary                 > $Exploit_credentials
-                # 7.3.2 Back                    > $menu_7.0
+            # 7.3 Credential theft              > $menu_7_3
+                # 7.3.1 Summary                 > $E_credentials
+                # 7.3.2 Back                    > $menu_7
                 # 7.3.3 Exit                    > $exit
-            # 7.4 Internal error                > $menu_7.4
-                # 7.4.1 Summary                 > $Exploit_error
-                # 7.4.2 Back                    > $menu_7.0
+            # 7.4 Internal error                > $menu_7_4
+                # 7.4.1 Summary                 > $E_error
+                # 7.4.2 Back                    > $menu_7
                 # 7.4.3 Exit                    > $exit
-            # 7.5 Internal theft                > $menu_7.5
-                # 7.5.1 Summary                 > $Exploit_internal
-                # 7.5.2 Back                    > $menu_7.0
+            # 7.5 Internal theft                > $menu_7_5
+                # 7.5.1 Summary                 > $E_internal
+                # 7.5.2 Back                    > $menu_7
                 # 7.5.3 Exit                    > $exit
-            # 7.6 Server error                  > $menu_7.6
-                # 7.6.1 Summary                 > $Exploit_server
-                # 7.6.2 Back                    > $menu_7.0
+            # 7.6 Server error                  > $menu_7_6
+                # 7.6.1 Summary                 > $E_server
+                # 7.6.2 Back                    > $menu_7
                 # 7.7.3 Exit                    > $exit
-            # 7.7 Undisclosed                   > $menu_7.7
-                # 7.7.1 Summary                 > $Exploit_undisclosed
-                # 7.7.2 Back                    > $menu_7.0
+            # 7.7 Undisclosed                   > $menu_7_7
+                # 7.7.1 Summary                 > $E_undisclosed
+                # 7.7.2 Back                    > $menu_7
                 # 7.7.3 Exit                    > $exit
-            # 7.8 Unsuccessful                  > $menu_7.8
-                # 7.8.1 Summary                 > $Exploit_unsuccessful
-                # 7.8.2 Back                    > $menu_7.0
+            # 7.8 Unsuccessful                  > $menu_7_8
+                # 7.8.1 Summary                 > $E_unsuccessful
+                # 7.8.2 Back                    > $menu_7
                 # 7.8.3 Exit                    > $exit
             # 7.9 Back                          > $menu_main
             # 7.10 Exit                         > $exit
