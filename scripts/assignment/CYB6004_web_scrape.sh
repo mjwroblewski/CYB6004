@@ -23,14 +23,14 @@ Pass_lock="Password/not_a_password.txt"
 Pass_lock_hash=$(cat "$Pass_lock")
 
 # Formatting variables
-black=\033[30m
-red=\033[31m
-green=\033[32m
-brown=\033[33m
-blue=\033[34m
-purple=\033[35m
-cyan=\033[36m
-clear=\033[0m
+black=-'e \033[30m'
+red='-e \033[31m'
+green='-e \033[32m'
+brown='-e \033[33m'
+blue='-e \033[34m'
+purple='-e \033[35m'
+cyan='-e \033[36m'
+clear='\033[0m'
 
 # Data extraction variables
 # Scrape webpage, extract and format data
@@ -170,7 +170,7 @@ E_unsuccessful=hack{46,52}
     hack5="5:2012:Bitcoinica:Bitcoin:40,000:300,000:300,000:Undisclosed"                             # 
     hack6="6:2012:Bitfloor:Bitcoin:24,000:250,000:0:Undisclosed"                                     # 
     hack7="7:2013:Vircurex:Various:250,117:352,000:0:Stolen credentials"                             # 
-    hack8="8:2013:Picostocks:Bitcoin:1,300:Undisclosed:0:Undisclosed"                                    # 
+    hack8="8:2013:Picostocks:Bitcoin:1,300:Undisclosed:0:Undisclosed"                                # 
     hack9="9:2013:Inputs.io:Bitcoin:4,100:1,200,000:0:Server vulnerability"                          # 
     hack10="10:2014:Mt Gox:Bitcoin:844,408:661,348,000:0:Undisclosed"                                # 
     hack11="11:2014:Picostocks:Bitcoin:5,896:4,434,000:0:Cold wallet"                                # 
@@ -238,8 +238,12 @@ E_unsuccessful=hack{46,52}
 
     } 
 
+###########################
+# Security and Encryption #
+##########################
+
 # "Password_check" function checks the user's credentials against the password
-# Password is encrypted in a .txt file "Password/not_a_password.txt"
+# Password is encrypted and located in "Password/not_a_password.txt"
 
     function password_unlock() {
 
@@ -249,7 +253,7 @@ E_unsuccessful=hack{46,52}
         Pass_lock="Password/not_a_password.txt"
         Pass_lock_hash=$(cat "$Pass_lock")
 
-        # If password is incorrect
+# If password is incorrect, script terminates
 
         if [ "$Pass_lock_hash" -ne "$Pass_unlock_hash" ]; then
 
@@ -257,80 +261,90 @@ E_unsuccessful=hack{46,52}
 
             exit 1
 
-        # If password is correct
+# If password is correct, proceed to menu
 
         else
 
             echo $green'Access Granted.'$clear
-        
+            menu_main
+
         fi
 
-        # Script menu is modular and interactive. Menu and sub-menu options call specific functions
-        # "menu_main" is the top menu
+    }
 
-        function menu_main() {
-        }
-            echo $blue'Welcome to the Crypto Exchange Hacking Event Database.'
-            echo 'It comprises a record of hacking events undertaken against crypocurrency exchanges between 2011 and 2022.'$clear
-            echo
-            echo $yellow'MAIN MENU'$clear
-            echo
-            echo $cyan'Please make a selection: '$clear
-            read -p "
-                1. Show all hacking event data
-                2. Search by year
-                3. Search by currency stolen
-                4. Search by number of units stolen
-                5. Search by value stolen
-                6. Search by funds recovered
-                7. Search by exploit
-                8. Exit
-                " choice_menu_main
+##################
+# Menu functions #
+##################
 
-                case "$choice_menu_main" in
+# The menu system is modular and navigated through functions within case statements
+# "menu_main" is the top menu
 
-                    1)
-                        # Call menu_1 function
-                        menu_1 ;;
-                    2)
-                        # Call menu_2 function
-                        menu_2 ;;
-                    3)
-                        # Call menu_3 function
-                        menu_3 ;;
-                    4)
-                        # Call menu_4 function
-                        menu_4 ;;
-                    5)
-                        # Call menu_5 function
-                        menu_5 ;;
-                    6)
-                        # Call menu_6 function
-                        menu_6 ;;
-                    7)
-                        # Call menu_7 function
-                        menu_7 ;;
-                    8)
-                        # Call exit_menu function
-                        menu_exit ;;
-                    *)
-                        # Call error function
-                        menu_error ;;
+    function menu_main() {
+        
+        echo $blue'Welcome to the Crypto Exchange Hacking Event Database.'
+        echo 'It comprises a record of hacking events undertaken against crypocurrency exchanges between 2011 and 2022.'$clear
+        echo
+        echo $yellow'MAIN MENU'$clear
+        echo
+        echo $cyan'Please make a selection: '$clear
+        read -p "
+            1. Show all hacking event data
+            2. Search by year
+            3. Search by currency stolen
+            4. Search by number of units stolen
+            5. Search by value stolen
+            6. Search by funds recovered
+            7. Search by exploit type
+            8. Exit
+            " choice_menu_main
 
+# Menu and sub-menu case statements options call specific functions
+
+            case "$choice_menu_main" in
+
+                1)
+                    echo "1. Show all hacking event data"
+                    menu_1 ;;
+                2)
+                    echo "2. Search by year"
+                    menu_2 ;;
+                3)
+                    echo "3. Search by currency stolen"
+                    menu_3 ;;
+                4)
+                    echo "4. Search by number of units stolen"
+                    menu_4 ;;
+                5)
+                    echo "5. Search by value stolen"
+                    menu_5 ;;
+                6)
+                    echo "6. Search by funds recovered"
+                    menu_6 ;;
+                7)
+                    echo "7. Search by exploit type"
+                    menu_7 ;;
+                8)
+                    echo "8. Exit"
+                    menu_exit ;;
+                *)
+                    menu_error ;;
+        
                 esac
-
+    }
 
     function menu_exit() {
         echo "Goodbye, thanks for visiting!"
+        
         exit 0
     }
 
-    # "menu_error" function redirect user to "menu_main"
+# "menu_error" function redirect user to "menu_main"
+
     function menu_error() {
+
         echo $red"That is not a valid response. Please select again..."$clear
         menu_main
     }
-
 
     function menu_1() {
         read -p "
@@ -339,20 +353,19 @@ E_unsuccessful=hack{46,52}
             3. Exit
             " choice_menu_1
 
-            case "$choice_menu_1" in
+        case "$choice_menu_1" in
 
-                1)
-                    # Call menu_1_all_data function. Outputs all data as a table
-                    menu_1_all_data ;;
-                2)
-                    menu_main ;;
-                3)
-                    menu_exit ;;
-                *)
-                    menu_error ;;
-    }
-    )       esac
-
+            1)
+                # Output all data as a table
+                menu_1_all_data ;;
+            2)
+                menu_main ;;
+            3)
+                menu_exit ;;
+            *)
+                menu_error ;;
+    })
+        esac
 
 # Extract selected all data from $arraysfile and present it in a table format
 # Set the field delimiter as a :
@@ -363,22 +376,22 @@ E_unsuccessful=hack{46,52}
 
         BEGIN {
     
-        printf ("___________________________________________________________________________________________________________________\n");
+        printf ("_____________________________________________________________________________________________________________________\n");
 
-        printf ("%-15s %-15s %-24s %-23s %-23s %-22s %-23s %-30s \n","| '$brown'Hack'$clear'","| '$brown'Year'$clear'","| '$brown'Exchange'$clear'","| '$brown'Currency'$clear'","| '$brown'Units'$clear'"," | '$brown'\$Value'$clear'"," | '$brown'\$Recovered'$clear'"," | '$brown'Vulnerability'$clear'          |");
+        printf ("%-5s %-5s %-15s %-15s %-14s %-14s %-8s %-0s \n","| Hack","| Year","| Exchange","| Currency","| Units"," | \$ Value"," | \$ Recovered","| Vulnerability          |");
  
-        printf ("___________________________________________________________________________________________________________________\n");
+        printf ("_____________________________________________________________________________________________________________________\n");
 
     }
 
     {
-        printf ("| %-4s | %-4s | %-13s | %-12s | %-13s | %-11s | %-12s | %-22s |\n", $1, $2, $3, $4, $5, $6, $7, $8 );
+        printf ("| %-4s | %-4s | %-13s | %-13s | %-13s | %-12s | %-11s | %-22s |\n", $1, $2, $3, $4, $5, $6, $7, $8 );
 
-        printf ("___________________________________________________________________________________________________________________\n")
+        printf ("_____________________________________________________________________________________________________________________\n")
 
     }' arrays.txt
 
-    }
+    
 
     function menu_2() {
         read -p "
@@ -448,7 +461,8 @@ E_unsuccessful=hack{46,52}
                     menu_2 ;;
                 14)
                     menu_exit
-
+                *)
+                    menu_error ;;
 
 
 
@@ -753,6 +767,7 @@ table_all_data
 # https://dev.to/meleu/how-to-join-array-elements-in-a-bash-script-303a
 # https://guide.bash.academy/expansions/
 # https://devhints.io/bash
+# https://towardsdatascience.com/how-to-create-a-foolproof-interactive-terminal-menu-with-bash-scripts-97911586d4e5
 
 # References:
     # CYB6004.2022.AC1.OFFCAMPUS Scripting Languages
