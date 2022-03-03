@@ -17,7 +17,23 @@
 #  VARIABLES #
 ##############
 
-# scrape webpage, extract and format data
+# Password variables
+Pass_unlock_hash=$(echo "$Pass_unlock" | sha256sum)
+Pass_lock="Password/not_a_password.txt"
+Pass_lock_hash=$(cat "$Pass_lock")
+
+# Formatting variables
+black=\033[30m
+red=\033[31m
+green=\033[32m
+brown=\033[33m
+blue=\033[34m
+purple=\033[35m
+cyan=\033[36m
+clear=\033[0m
+
+# Data extraction variables
+# Scrape webpage, extract and format data
 curl=$(which curl)
 dumpfile="dump.txt"
 stripfile="strip.txt"
@@ -25,7 +41,7 @@ formatfile="format.txt"
 arraysfile="arrays.txt"
 url="https://cryptosec.info/exchange-hacks/"
 
-# Hack variables
+# Hacking event variables
 # Year
 2011=hack{1,2}
 2012=hack{3,4,5,6}
@@ -95,35 +111,6 @@ Exploit_unsuccessful=hack{46,52}
 # FUNCTIONS #
 #############
 
-# "Password_check" function checks the user's credentials against the password
-# Password is encrypted in a .txt file "Password/not_a_password.txt"
-
-    function password_unlock() {
-
-        read -sp "Database is locked. Please enter your password: " Pass_unlock
-
-        Pass_unlock_hash=$(echo "$Pass_unlock" | sha256sum)
-        Pass_lock="Password/not_a_password.txt"
-        Pass_lock_hash=$(cat "$Pass_lock")
-
-        # If password is incorrect
-
-        if [ "$Pass_lock_hash" -ne "$Pass_unlock_hash" ]; then
-
-            echo "Access Denied"
-
-            exit 1
-
-        # If password is correct
-
-        else
-
-            echo "Access Granted"
-
-            exit 0
-
-        fi
-
 # "dump_webpage" function scrapes the webpage using "curl"
 # Calls "check_errors" function, output error message if scrape is unsuccessful
 # Outputs data to $dumpfile
@@ -163,9 +150,6 @@ Exploit_unsuccessful=hack{46,52}
             grep . -A1 $stripfile | grep -v "^--$"
 
     } > $formatfile 
-
-
-
 
 
 ######################################################################################################
@@ -238,9 +222,9 @@ Exploit_unsuccessful=hack{46,52}
                                                                                                      #
 ######################################################################################################
 
-# "arrays" function inserts a delimiter "#" at the beginning of variables "$hack1 - $hack56
-# then copies variables to $arraysfile
+# "arrays" function inserts a delimiter "#" at the beginning of variables "$hack1 - $hack56 then copies variables to $arraysfile
 # "sed" inserts line breaks at delimiters, deletes the blank top line then deletes the delimeter
+# The "$arraysfile" document is the source for user-generated search results
 
     function arrays() {
 
@@ -269,7 +253,7 @@ Exploit_unsuccessful=hack{46,52}
 
         if [ "$Pass_lock_hash" -ne "$Pass_unlock_hash" ]; then
 
-            echo "Access Denied"
+            echo $red"Access Denied"$clear
 
             exit 1
 
@@ -277,15 +261,21 @@ Exploit_unsuccessful=hack{46,52}
 
         else
 
-            echo "Access Granted"
-
+            echo $green'Access Granted.'$clear
         
+        fi
 
-        
+        function menu_main() {
+        }
+            echo $blue'Welcome to the Crypto Exchange Hacking Event Database.'
+            echo
+            echo 'It comprises a record of hacking events undertaken against crypocurrency exchanges between 2011 and 2022.'$clear
+            echo
+            echo $yellow'Please make a selection: '$clear
+
 
 # Extract selected all data from $arraysfile and present it in a table format
 
-    echo "Crypto Exchange Hacks:"
 
 # Set the field delimiter as a :
 
@@ -297,7 +287,7 @@ Exploit_unsuccessful=hack{46,52}
     
         printf ("___________________________________________________________________________________________________________________\n");
 
-        printf ("%-15s %-15s %-24s %-23s %-23s %-22s %-23s %-30s \n","| \033[33mHack\033[0m","| \033[33mYear\033[0m","| \033[33mExchange\033[0m","| \033[33mCurrency\033[0m","| \033[33mUnits\033[0m"," | \033[33m\$Value\033[0m"," | \033[33m\$Returned\033[0m"," | \033[33mVulnerability\033[0m          |");
+        printf ("%-15s %-15s %-24s %-23s %-23s %-22s %-23s %-30s \n","| '$brown'Hack'$clear'","| '$brown'Year'$clear'","| '$brown'Exchange'$clear'","| '$brown'Currency'$clear'","| '$brown'Units'$clear'"," | '$brown'\$Value'$clear'"," | '$brown'\$Recovered'$clear'"," | '$brown'Vulnerability'$clear'          |");
  
         printf ("___________________________________________________________________________________________________________________\n");
 
@@ -319,305 +309,240 @@ Exploit_unsuccessful=hack{46,52}
 #########################
 # MENUS
 
-# Main menu
-    # Introduce the program
-    # What does it do
-    # Instructions
+# Main menu                                     > $menu_main
     # OPTIONS
-        # 1. Show all hacking event data        > table_all_data
+        # 1. Show all hacking event data        > $menu_1.0
+            # 1.1 Show all data                 > $table_all_data
+            # 1.2 Back                          > $menu_main
+            # 1.3 Exit                          > $exit
         # 2. Search hacks by year(s)            
-            # Enter a year                  
-                # 2.1 2011                      > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.1.1 Back                > $
-                    # 2.1.2 Exit                > $
-                # 2.2 2012                      > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.2.1 Back                > $
-                    # 2.2.2 Exit                > $
-                # 2.3 2013                      > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.3.1 Back                > $
-                    # 2.3.2 Exit                > $                
-                # 2.4 2014                      > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.4.1 Back                > $
-                    # 2.4.2 Exit                > $                                
-                # 2.5 2015                      > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.5.1 Back                > $
-                    # 2.5.2 Exit                > $                
-                # 2.6 2016                      > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.6.1 Back                > $
-                    # 2.6.2 Exit                > $                                
-                # 2.7 2017                      > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.7.1 Back                > $
-                    # 2.7.2 Exit                > $                                
-                # 2.8 2018                      > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.8.1 Back                > $
-                    # 2.8.2 Exit                > $                
-                # 2.9 2019                      > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.9.1 Back                > $
-                    # 2.9.2 Exit                > $                
-                # 2.10 2020                     > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.10.1 Back               > $
-                    # 2.10.2 Exit               > $                
-                # 2.11 2021                     > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.11.1 Back               > $
-                    # 2.11.2 Exit               > $                
-                # 2.12 2022                     > $
-                    # List                      > $
-                    # Count                     > $
-                    # Total                     > $
-                    # 2.12.1 Back               > $
-                    # 2.12.2 Exit               > $
-                # 2.13 Back                     > $
-                # 2.14 Exit                     > $
+            # Enter a year                      > $menu_2.0
+                # 2.1 2011                      > $menu_2.1
+                    # 2.1.1 Summary             > $2011
+                    # 2.1.2 Back                > $menu_2.0
+                    # 2.1.3 Exit                > $exit
+                # 2.2 2012                      > $menu_2.2
+                    # 2.2.1 Summary             > $2012
+                    # 2.2.2 Back                > $menu_2.0
+                    # 2.2.2 Exit                > $exit
+                # 2.3 2013                      > $menu_2.3
+                    # 2.3.1 Summary             > $2013
+                    # 2.3.2 Back                > $menu_2.0
+                    # 2.3.3 Exit                > $exit
+                # 2.4 2014                      > $menu_2.4
+                    # 2.4.1 Summary             > $2014
+                    # 2.4.2 Back                > $menu_2.0
+                    # 2.4.3 Exit                > $exit            
+                # 2.5 2015                      > $menu_2.5
+                    # 2.5.1 Summary             > $2015
+                    # 2.5.2 Back                > $menu_2.0
+                    # 2.5.3 Exit                > $exit
+                # 2.6 2016                      > $menu_2.6
+                    # 2.6.1 Summary             > $2016
+                    # 2.6.2 Back                > $menu_2.0
+                    # 2.6.3 Exit                > $exit                
+                # 2.7 2017                      > $menu_2.7
+                    # 2.7.1 Summary             > $2017
+                    # 2.7.2 Back                > $menu_2.0
+                    # 2.7.3 Exit                > $exit
+                # 2.8 2018                      > $menu_2.8
+                    # 2.8.1 Summary             > $2018
+                    # 2.8.2 Back                > $menu_2.0
+                    # 2.8.3 Exit                > $exit
+                # 2.9 2019                      > $menu_2.9
+                    # 2.9.1 Summary             > $2019
+                    # 2.9.2 Back                > $menu_2.0
+                    # 2.9.3 Exit                > $exit
+                # 2.10 2020                     > $menu_2.10
+                    # 2.10.1 Summary            > $2020
+                    # 2.10.2 Back               > $menu_2.0
+                    # 2.10.3 Exit               > $exit
+                # 2.11 2021                     > $menu_2.11
+                    # 2.11.1 Summary            > $2021
+                    # 2.11.2 Back               > $menu_2.0
+                    # 2.11.3 Exit               > $exit
+                # 2.12 2022                     > $menu_2.12
+                    # 2.12.1 Summary            > $2022
+                    # 2.12.2 Back               > $menu_2.0
+                    # 2.12.3 Exit               > $exit
+                # 2.13 Back                     > $menu_main
+                # 2.14 Exit                     > $exit
 
-        # 2. Search by currency stolen
-            # 2.1 Bitcoin                       > $Currency_Bitcoin
-                # 2.1.1                         > $
-                # 2.1.2                         > $
-                # 2.1.3                         > $
-            # 2.2 EOS                           > $Currency_EOS
-                # 2.2.1                         > $
-                # 2.2.2                         > $
-                # 2.2.3                         > $
-            # 2.3 Ethereum                      > $Currency_Ethereum
-                # 2.3.1                         > $
-                # 2.3.2                         > $
-                # 2.3.3                         > $
-            # 2.4 NEM                           > $Currency_NEM
-                # 2.4.1                         > $
-                # 2.4.2                         > $
-                # 2.4.3                         > $
-            # 2.5 Nano                          > $Currency_Nano
-                # 2.5.1                         > $
-                # 2.5.2                         > $
-                # 2.5.3                         > $
-            # 2.6 Vericoin                      > $Currency_Verizon
-                # 2.6.1                         > $
-                # 2.6.2                         > $
-                # 2.6.3                         > $
-            # 2.7 Multiple currencies           > $Currency_multiple
-                # 2.7.1                         > $
-                # 2.7.2                         > $
-                # 2.7.3                         > $
-            # 2.8 Undisclosed                   > $Currency_undisclosed
-                # 2.8.1                         > $
-                # 2.8.2                         > $
-                # 2.8.3                         > $
-            # 2.9 Cash                          > $Currency_cash
-                # 2.9.1                         > $
-                # 2.9.2                         > $
-                # 2.9.3                         > $
-            # 2.10 Data                         > $Data
-                # 2.10.1                        > $
-                # 2.10.2                        > $
-                # 2.10.3                        > $
+        # 3. Search by currency stolen          > $menu_3.0
+            # 3.1 Bitcoin                       > $menu_3.1
+                # 3.1.1 Summary                 > $Currency_Bitcoin
+                # 3.1.2 Back                    > $menu_3.0
+                # 3.1.3 exit                    > $exit
+            # 3.2 EOS                           > $menu_3.2
+                # 3.2.1 Summary                 > $Currency_EOS
+                # 3.2.2 Back                    > $menu_3.0
+                # 3.2.3 Exit                    > $exit
+            # 3.3 Ethereum                      > $menu_3.3
+                # 3.3.1 Summary                 > $Currency_Ethereum
+                # 3.3.2 Back                    > $menu_3.0
+                # 3.3.3 Exit                    > $exit
+            # 3.4 NEM                           > $menu_3.4
+                # 3.4.1 Summary                 > $Currency_NEM
+                # 3.4.2 Back                    > $menu_3.0
+                # 3.4.3 Exit                    > $exit
+            # 3.5 Nano                          > $menu_3.5
+                # 3.5.1 Summary                 > $Currency_Nano
+                # 3.5.2 Back                    > $menu_3.0
+                # 3.5.3 Exit                    > $exit
+            # 3.6 Vericoin                      > $menu_3.6
+                # 3.6.1 Summary                 > $Currency_Verizon
+                # 3.6.2 Back                    > $menu_3.0
+                # 3.6.3 Exit                    > $exit
+            # 3.7 Multiple currencies           > $menu_3.7
+                # 3.7.1 Summary                 > $Currency_multiple
+                # 3.7.2 Back                    > $menu_3.0
+                # 3.7.3 Exit                    > $exit
+            # 3.8 Undisclosed                   > $menu_3.8
+                # 3.8.1 Summary                 > $Currency_undisclosed
+                # 3.8.2 Back                    > $menu_3.0
+                # 3.8.3 Exit                    > $exit
+            # 3.9 Cash only                     > $menu_3.9
+                # 3.9.1 Summary                 > $Currency_cash
+                # 3.9.2 Back                    > $menu_3.0
+                # 3.9.3 Exit                    > $exit
+            # 3.10 Data only                    > $menu_3.10
+                # 3.10.1 Summary                > $Data
+                # 3.10.2 Back                   > $menu_3.0
+                # 3.10.3 Exit                   > $exit
+            # 3.11 Back                         > $menu_main
+            # 3.12 Exit                         > $exit
         
-        # 4. Search by number of units stolen
-            # 3.1 <100                          > $Units_0-99
-                # 3.1.1                         > $
-                # 3.1.2                         > $
-                # 3.1.3                         > $
-            # 3.2 100 - 999                     > $Units_100-999
-                # 3.2.1                         > $
-                # 3.2.2                         > $
-                # 3.2.3                         > $
-            # 3.3 1,000 - 9,999                 > $Units_1000-9999
-                # 3.3.1                         > $
-                # 3.3.2                         > $
-                # 3.3.3                         > $    
-            # 3.4 10,000 - 99,999               > $Units_10000-99999
-                # 3.4.1                         > $
-                # 3.4.2                         > $
-                # 3.4.3                         > $
-            # 3.5 100,000 - 999,999             > $Units_100000-999999
-                # 3.5.1                         > $
-                # 3.5.2                         > $
-                # 3.5.3                         > $
-            # 3.6 1,000,000 - 9,999,999         > $Units_1000000-9999999
-                # 3.6.1                         > $
-                # 3.6.2                         > $
-                # 3.6.3                         > $
-            # 3.7 10,000,000 - 99,999,999       > $Units_10000000-99999999
-                # 3.7.1                         > $
-                # 3.7.2                         > $
-                # 3.7.3                         > $
-            # 3.8 > 100,000,000                 > $Units_>100000000
-                # 3.8.1                         > $
-                # 3.8.2                         > $
-                # 3.8.3                         > $
-            # 3.9 Undisclosed                   > $Units_undisclosed
-                # 3.9.1                         > $
-                # 3.9.2                         > $
-                # 3.9.3                         > $
+        # 4. Search by number of units stolen   > $menu_4.0
+            # 4.1 <100                          > $menu_4.1
+                # 4.1.1 Summary                 > $Units_0-99
+                # 4.1.2 Back                    > $menu_4.0
+                # 4.1.3 Exit                    > $exit
+            # 4.2 100 - 999                     > $menu_4.2
+                # 4.2.1 Summary                 > $Units_100-999
+                # 4.2.2 Back                    > $menu_4.0
+                # 4.2.3 Exit                    > $exit
+            # 4.3 1,000 - 9,999                 > $menu_4.3
+                # 4.3.1 Summary                 > $Units_1000-9999
+                # 4.3.2 Back                    > $menu_4.0
+                # 4.3.3 Exit                    > $exit    
+            # 4.4 10,000 - 99,999               > $menu_4.4
+                # 4.4.1 Summary                 > $Units_10000-99999
+                # 4.4.2 Back                    > $menu_4.0
+                # 4.4.3 Exit                    > $exit
+            # 4.5 100,000 - 999,999             > $menu_4.5
+                # 4.5.1 Summary                 > $Units_100000-999999
+                # 4.5.2 Back                    > $menu_4.0
+                # 4.5.3 Exit                    > $exit
+            # 4.6 1,000,000 - 9,999,999         > $menu_4.6
+                # 4.6.1 Summary                 > $Units_1000000-9999999
+                # 4.6.2 Back                    > $menu_4.0
+                # 4.6.3 Exit                    > $exit
+            # 4.7 10,000,000 - 99,999,999       > $menu_4.7
+                # 4.7.1 Summary                 > $Units_10000000-99999999
+                # 4.7.2 Back                    > $menu_4.0
+                # 4.7.3 Exit                    > $exit
+            # 4.8 > 100,000,000                 > $menu_4.8
+                # 4.8.1 Summary                 > $Units_>100000000
+                # 4.8.2 Back                    > $menu_4.0
+                # 4.8.3 Exit                    > $exit
+            # 4.9 Undisclosed                   > $menu_4.9
+                # 4.9.1 Summary                 > $Units_undisclosed
+                # 4.9.2 Back                    > $menu_4.0
+                # 4.9.3 Exit                    > $exit
 
-        # 4. Search by value stolen
-            # 4.1 <$50,000                      > $Val_49999
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 4.1.1 Back                    > $
-                # 4.1.2 Exit                    > $
-            # 4.2 $50,000 - $99,999             > $Val_50000-99999
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 4.2.1 Back                    > $
-                # 4.2.2 Exit                    > $                
-            # 4.3 $100,000 - $499,999           > $Val_100000-499999
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 4.3.1 Back                    > $
-                # 4.3.2 Exit                    > $                
-            # 4.4 $500,000 - $999,999           > $Val_500000-999999
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 4.4.1 Back                    > $
-                # 4.4.2 Exit                    > $                
-            # 4.5 $1,000,000 - $4,999,999       > $Val_1000000-4999999
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 4.5.1 Back                    > $
-                # 4.5.2 Exit                    > $                
-            # 4.6 $5,000,000 - $9,999,999       > $Val_5000000-9999999
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 4.6.1 Back                    > $
-                # 4.6.2 Exit                    > $                
-            #4.7 $10,000,000 - $49,999,999      > $
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 4.7.1 Back                    > $
-                # 4.7.2 Exit                    > $                
-            # 4.8 $50,000,000 - $99,999,999     > $Val_50000000-99999999
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 4.8.1 Back                    > $
-                # 4.8.2 Exit                    > $                
-            # 4.9 > $100,000,000                > $Val_>100000000
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 4.9.1 Back                    > $
-                # 4.9.2 Exit                    > $                
-            # 4.10 Summary                      > $
-                # 4.10.1 Back                   > $
-                # 4.10.2 Exit                   > $            
-        
-        # 5. Search by funds recovered
-            # 5.1 Yes                           > $Returned_all
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 5.1.1 Back                    > $
-                # 5.1.2 Exit                    > $                
-            # 5.2 No                            > $Returned_none
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 5.2.1 Back                    > $
-                # 5.2.2 Exit                    > $                
-            # 5.3 Undisclosed                   > $Returned_undisclosed
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 5.3.1 Back                    > $
-                # 5.3.2 Exit                    > $                
-            # 5.4 Summary                       > $
-                # 5.4.1 Back                    > $
-                # 5.4.2 Exit                    > $            
+        # 5. Search by value stolen             > $menu_5.0
+            # 5.1 <$50,000                      > $menu_5.1
+                # 5.1.1 Summary                 > $Val_49999
+                # 5.1.2 Back                    > $menu_5.1
+                # 5.1.3 Exit                    > $exit
+            # 5.2 $50,000 - $99,999             > $menu_5.2
+                # 5.2.1 Summary                 > $Val_50000-99999
+                # 5.2.2 Back                    > $menu_5.0
+                # 5.2.3 Exit                    > $exit
+            # 5.3 $100,000 - $499,999           > $menu_5.3
+                # 5.3.1 Summary                 > $Val_100000-499999
+                # 5.3.2 Back                    > $menu_5.0
+                # 5.3.3 Exit                    > $exit
+            # 5.4 $500,000 - $999,999           > $menu_5.4
+                # 5.4.1 Summary                 > $Val_500000-999999
+                # 5.4.2 Back                    > $menu_5.0
+                # 5.4.3 Exit                    > $exit
+            # 5.5 $1,000,000 - $4,999,999       > $menu_5.5
+                # 5.5.1 Summary                 > $Val_1000000-4999999
+                # 5.5.2 Back                    > $menu_5.0
+                # 5.5.3 Exit                    > $exit   
+            # 5.6 $5,000,000 - $9,999,999       > $menu_5.6
+                # 5.6.1 Summary                 > $Val_5000000-9999999
+                # 5.6.2 Back                    > $menu_5.0
+                # 5.6.3 Exit                    > $exit
+            # 5.7 $10,000,000 - $49,999,999     > $menu_5.7
+                # 5.7.1 Summary                 > $Val_10000000-49999999
+                # 5.7.2 Back                    > $menu_5.0
+                # 5.7.3 Exit                    > $exit
+            # 5.8 $50,000,000 - $99,999,999     > $menu_5.8
+                # 5.8.1 Summary                 > $Val_50000000-99999999
+                # 5.8.2 Back                    > $menu_5.0
+                # 5.8.3 Exit                    > $exit
+            # 5.9 > $100,000,000                > $menu_5.9
+                # 5.9.1 Summary                 > $Val_>100000000
+                # 5.9.2 Back                    > $menu_5.0
+                # 5.9.3 Exit                    > $exit
+            # 5.10 Back                         > $menu_main
+            # 5.11 Exit                         > $exit
+         
+        # 6. Search by funds recovered          > $menu_6.0
+            # 6.1 Yes                           > $menu_6.1
+                # 6.1.1 Summary                 > $Returned_all
+                # 6.1.2 Back                    > $menu_6.0
+                # 6.1.3 Exit                    > $exit
+            # 6.2 No                            > $menu_6.2
+                # 6.2.1 Summary                 > $Returned_none
+                # 6.2.2 Back                    > $menu_6.0
+                # 6.2.3 Exit                    > $exit
+            # 6.3 Undisclosed                   > $menu_6.3
+                # 6.3.1 Summary                 > $Returned_undisclosed
+                # 6.3.2 Back                    > $menu_6.0
+                # 6.3.3 Exit                    > $exit
+            # 6.4 Back                          > $menu_main
+            # 6.5 Exit                          > $exit
 
-        # 6. Search by exploit
-            # 6.1 Hot wallet                    > $Exploit_hot
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 6.1.1 Back                    > $
-                # 6.1.2 Exit                    > $                
-            # 6.2 Cold wallet                   > $Exploit_cold
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 6.2.1 Back                    > $
-                # 6.2.2 Exit                    > $                          
-            # 6.3 Credential theft              > $Exploit_credentials
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 6.3.1 Back                    > $
-                # 6.3.2 Exit                    > $                            
-            # 6.4 Internal error                > $Exploit_error
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 6.4.1 Back                    > $
-                # 6.4.2 Exit                    > $                         
-            # 6.5 Internal theft                > $Exploit_internal
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 6.5.1 Back                    > $
-                # 6.5.2 Exit                    > $                           
-            # 6.6 Server error                  > $Exploit_server
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 6.6.1 Back                    > $
-                # 6.7.2 Exit                    > $                          
-            # 6.7 Undisclosed                   > $Exploit_undisclosed
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 6.7.1 Back                    > $
-                # 6.7.2 Exit                    > $                          
-            # 6.8 Unsuccessful                  > $Exploit_unsuccessful
-                # List                          > $
-                # Count                         > $
-                # Total                         > $
-                # 6.8.1 Back                    > $
-                # 6.8.2 Exit                    > $                
-            # 6.9 Summary                       > $
-            # 6.10 Back                         > $
-            # 6.11 Exit                         > $
+        # 7. Search by exploit                  > $menu_7.0
+            # 7.1 Hot wallet                    > $menu_7.1
+                # 7.1.1 Summary                 > $Exploit_hot
+                # 7.1.2 Back                    > $menu_7.0
+                # 7.1.3 Exit                    > $exit
+            # 7.2 Cold wallet                   > $menu_7.2
+                # 7.2.1 Summary                 > $Exploit_cold
+                # 7.2.2 Back                    > $menu_7.0
+                # 7.2.3 Exit                    > $exit     
+            # 7.3 Credential theft              > $menu_7.3
+                # 7.3.1 Summary                 > $Exploit_credentials
+                # 7.3.2 Back                    > $menu_7.0
+                # 7.3.3 Exit                    > $exit
+            # 7.4 Internal error                > $menu_7.4
+                # 7.4.1 Summary                 > $Exploit_error
+                # 7.4.2 Back                    > $menu_7.0
+                # 7.4.3 Exit                    > $exit
+            # 7.5 Internal theft                > $menu_7.5
+                # 7.5.1 Summary                 > $Exploit_internal
+                # 7.5.2 Back                    > $menu_7.0
+                # 7.5.3 Exit                    > $exit
+            # 7.6 Server error                  > $menu_7.6
+                # 7.6.1 Summary                 > $Exploit_server
+                # 7.6.2 Back                    > $menu_7.0
+                # 7.7.3 Exit                    > $exit
+            # 7.7 Undisclosed                   > $menu_7.7
+                # 7.7.1 Summary                 > $Exploit_undisclosed
+                # 7.7.2 Back                    > $menu_7.0
+                # 7.7.3 Exit                    > $exit
+            # 7.8 Unsuccessful                  > $menu_7.8
+                # 7.8.1 Summary                 > $Exploit_unsuccessful
+                # 7.8.2 Back                    > $menu_7.0
+                # 7.8.3 Exit                    > $exit
+            # 7.9 Back                          > $menu_main
+            # 7.10 Exit                         > $exit
 
-        # 7. Exit                               > $
+        # 8. Exit                               > $exit
 
 
 #######################
