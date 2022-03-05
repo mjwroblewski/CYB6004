@@ -79,7 +79,7 @@ clear="\033[0m"
     V_sum="awk '{ S+=\$6} END {print Total value stolen: \$S}'"
     R_sum="awk '{ S+=\$7} END {print Total value recovered: \$S}'"
 
-#Year variables
+# Year variables
 
 Y_2011_file="Y_2011_file.txt"
 Y_2012_file="Y_2012_file.txt"
@@ -94,76 +94,44 @@ Y_2020_file="Y_2020_file.txt"
 Y_2021_file="Y_2021_file.txt"
 Y_2022_file="Y_2022_file.txt"
 
-# Year variables
 
-Y_2011_T="Y_2011_T.txt"
-Y_2012_T="Y_2012_T.txt"
-Y_2013_T="Y_2013_T.txt"
-Y_2014_T="Y_2014_T.txt"
-Y_2015_T="Y_2015_T.txt"
-Y_2016_T="Y_2016_T.txt"
-Y_2017_T="Y_2017_T.txt"
-Y_2018_T="Y_2018_T.txt"
-Y_2019_T="Y_2019_T.txt"
-Y_2020_T="Y_2020_T.txt"
-Y_2021_T="Y_2021_T.txt"
-Y_2022_T="Y_2022_T.txt"
-
-# Hack variables
-
-H_2011=hack{1..2}
-H_2012=hack{3..6}
-H_2013=hack{7..9}
-H_2014=hack{10..16}
-H_2015=hack{17..21}
-H_2016=hack{22..25}
-H_2017=hack{26..28}
-H_2018=hack{29..36}
-H_2019=hack{37..44}
-H_2020=hack{45..50}
-H_2021=hack{51..55}
-H_2022=hack56
-
-# 
+# $formatfile $dumpfile $stripfile
 
 # Function extracts the data from arrays.txt and prints the data for all years as a formatted table
 
     function arrays() {
 
-        year_a="arrays.txt"
-        year_b="arrays_T.txt"
+        var_a="arrays.txt"
+        var_b="arrays_T.txt"
 
-        echo -e \#$hack{1..56} > arrays.txt
+            echo -e \#$hack{1..56} > arrays.txt
 
-            sed -i 's/#/\n&/g' $year_a
+            sed -i 's/#/\n&/g' $var_a
 
-                sed -i '1d' $year_a
+                sed -i '1d' $var_a
 
-                    sed -i 's/#//g' $year_a
+                    sed -i 's/#//g' $var_a
 
-                        cat $year_a > "arrays_T.txt"
+                        cat $var_a > "arrays_T.txt"
 
-                            sed -i 's/,//g' $year_b
+                            sed -i 's/,//g' $var_b
         
-        table_all_data 
-        totals
-        rm $year_a
-        rm $year_b        
+      
     }
 
-# Function removes the delimiters from the array in stages. Varaible "year_a" is formatted for display in tables, "year_b" is unformatted and used for calculations only
+# Function removes the delimiters from the array in stages. Varaible "var_a" is formatted for display in tables, "var_b" is unformatted and used for calculations only
 
-    function format_year() {
+    function format_text() {
 
-            sed -i 's/#/\n&/g' $year_a
+            sed -i 's/#/\n&/g' $var_a
 
-                sed -i '1d' $year_a
+                sed -i '1d' $var_a
     
-                    sed -i 's/#//g' $year_a
+                    sed -i 's/#//g' $var_a
 
-                        cat $year_a > "$year_b"
+                        cat $var_a > "$var_b"
                         
-                            sed -i 's/,//g' $year_b
+                            sed -i 's/,//g' $var_b
     }
 
 
@@ -189,17 +157,17 @@ H_2022=hack56
 
         printf ("_____________________________________________________________________________________________________________________\n")
 
-        }' $year_a
+        }' $var_a
     }
 
 # Function prints the number of events listed in the table, including the totals for each of columns 4 to 6
 
     function totals() {
 
-        wc -l $year_a | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $year_b
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $year_b
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $year_b 
+        wc -l $var_a | awk '{print "Total hacks conducted: "$1}'
+        awk '{ S+=$5 } END {print "Total units stolen: "S}' $var_b
+        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $var_b
+        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $var_b 
     }
 
 # Function creates a .txt file for the selected year(s) from the array, prints the data for the selected year by referencing the previous functions, then deletes the .txt files
@@ -211,7 +179,7 @@ H_2022=hack56
 
         echo -e \#$hack{1..2} > Y_2011_file.txt
 
-        format_year 
+        format_text 
         table_all_data 
         totals
 
@@ -226,7 +194,7 @@ H_2022=hack56
 
         echo -e \#$hack{3..6} > Y_2012_file.txt
 
-        format_year 
+        format_text
         table_all_data 
         totals
 
@@ -241,7 +209,7 @@ H_2022=hack56
 
         echo -e \#$hack{7..9} > Y_2013_file.txt
 
-        format_year 
+        format_text 
         table_all_data 
         totals
 
@@ -256,7 +224,7 @@ H_2022=hack56
 
         echo -e \#$hack{10..16} > Y_2014_file.txt
 
-        format_year 
+        format_text 
         table_all_data 
         totals
 
@@ -271,7 +239,7 @@ H_2022=hack56
 
         echo -e \#$hack{17..21} > Y_2015_file.txt
 
-        format_year 
+        format_text 
         table_all_data 
         totals
 
@@ -286,7 +254,7 @@ H_2022=hack56
 
         echo -e \#$hack{22..25} > Y_2016_file.txt
 
-        format_year 
+        format_text 
         table_all_data 
         totals
 
@@ -301,7 +269,7 @@ H_2022=hack56
 
         echo -e \#$hack{26..28} > Y_2017_file.txt
 
-        format_year 
+        format_text
         table_all_data 
         totals
 
@@ -316,7 +284,7 @@ H_2022=hack56
 
         echo -e \#$hack{29..36} > Y_2018_file.txt
 
-        format_year 
+        format_text 
         table_all_data 
         totals
 
@@ -331,7 +299,7 @@ H_2022=hack56
 
         echo -e \#$hack{37..44} > Y_2019_file.txt
 
-        format_year 
+        format_text 
         table_all_data 
         totals
 
@@ -346,7 +314,7 @@ H_2022=hack56
 
         echo -e \#$hack{45..50} > Y_2020_file.txt
 
-        format_year 
+        format_text 
         table_all_data 
         totals
 
@@ -361,7 +329,7 @@ H_2022=hack56
 
         echo -e \#$hack{51..55} > Y_2021_file.txt
 
-        format_year 
+        format_text 
         table_all_data 
         totals
 
@@ -376,7 +344,7 @@ H_2022=hack56
 
         echo -e \#$hack56 > Y_2022_file.txt
 
-        format_year 
+        format_text 
         table_all_data 
         totals
 
@@ -384,4 +352,577 @@ H_2022=hack56
         rm $Y_2022_T
     }
 
+######################################
 
+# Currency
+
+    function C_Bitcoin() {
+
+        var_a="C_Bitcoin.txt"
+        var_b="C_Bitcoin_T.txt"
+
+        echo -e \#$hack{1,3,4,5,6,8,9,10,11,12,13,17,18,19,20,21,24,25,26,29} > C_Bitcoin.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "C_Bitcoin.txt"
+        rm "C_Bitcoin_T.txt"
+    }   
+
+    function C_cash() {
+
+        var_a="C_cash.txt"
+        var_b="C_cash_T.txt"
+
+        echo -e \#$hack43 > C_cash.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "C_cash.txt"
+        rm "C_cash_T.txt"
+    }   
+
+    function C_EOS() {
+
+        var_a="C_EOS.txt"
+        var_b="C_EOS_T.txt"
+
+        echo -e \#$hack41 > C_EOS.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "C_EOS.txt"
+        rm "C_EOS_T.txt"
+    }   
+
+    function C_Ethereum() {
+
+        var_a="C_Ethereum.txt"
+        var_b="C_Ethereum_T.txt"
+
+        echo -e \#$hack44 > C_Ethereum.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "C_Ethereum.txt"
+        rm "C_Ethereum_T.txt"
+    } 
+
+    function C_Multiple() {
+
+        var_a="C_Multiple.txt"
+        var_b="C_Multiple_T.txt"
+
+        echo -e \#$hack{7,14,16,22,23,32,33,35,37,45,56} > C_Multiple.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "C_Multiple.txt"
+        rm "C_Multiple_T.txt"
+    } 
+
+    function C_NEM() {
+
+        var_a="C_NEM.txt"
+        var_b="C_NEM_T.txt"
+
+        echo -e \#$hack30 > C_NEM.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "C_NEM.txt"
+        rm "C_NEM_T.txt"
+    }
+    
+    function C_Nano() {
+
+        var_a="C_Nano.txt"
+        var_b="C_Nano_T.txt"
+
+        echo -e \#$hack31 > C_Nano.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "C_Nano.txt"
+        rm "C_Nano_T.txt"
+    }    
+
+    function C_Vericoin() {
+
+        var_a="C_Vericoin.txt"
+        var_b="C_Vericoin_T.txt"
+
+        echo -e \#$hack13 > C_Vericoin.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "C_Vericoin.txt"
+        rm "C_Vericoin_T.txt"
+    }
+
+    function C_Undisclosed() {
+
+        var_a="C_Undisclosed.txt"
+        var_b="C_Undisclosed_T.txt"
+
+        echo -e \#$hack{28,34,49,40,42,48,49,51,53,54,55} > C_Undisclosed.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "C_Undisclosed.txt"
+        rm "C_Undisclosed.txt"
+    }
+
+    function C_Data() {
+
+        var_a="C_Data.txt"
+        var_b="C_Data_T.txt"
+
+        echo -e \#$hack{2,27,38,46,47,50,52} > C_Data.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "C_Data.txt"
+        rm "C_Data_T.txt"
+    }    
+
+
+##################################
+
+# Units stolen - CHECK
+
+    function U_A() {
+
+        var_a="U_A.txt"
+        var_b="U_A_T.txt"
+
+        echo -e \#$hack{29,13,12} > U_A.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "U_A.txt"
+        rm "U_A.txt"
+    } 
+
+    function U_B() {
+
+        var_a="U_B.txt"
+        var_b="U_B_T.txt"
+
+        echo -e \#$hack{18,8,21,20,14,26,9} > U_B.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "U_B.txt"
+        rm "U_B.txt"
+    } 
+
+    function U_C() {
+
+        var_a="U_C.txt"
+        var_b="U_C_T.txt"
+
+        echo -e \#$hack{11,19,17,6,4,5,3} > U_C.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "U_C.txt"
+        rm "U_C_T.txt"
+    } 
+
+    function U_D() {
+
+        echo -e None
+
+    } 
+
+    function U_E() {
+
+        var_a="U_E.txt"
+        var_b="U_E_T.txt"
+
+        echo -e \#$hack{24,22,7,16,44,10} > U_E.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "U_E.txt"
+        rm "U_E_T.txt"
+    } 
+
+    function U_F() {
+
+        var_a="U_F.txt"
+        var_b="U_F_T.txt"
+
+        echo -e \#$hack{15,31,43,37,30} > U_F.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "U_F.txt"
+        rm "U_F_T.txt"
+    } 
+
+    function U_G() {
+
+        var_a="U_G.txt"
+        var_b="U_G_T.txt"
+
+        echo -e \#$hack{1,23,25,28,32,33,34,35,36,39,40,41,42,45,48,49,51,53,54,55,56} > U_G.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "U_G.txt"
+        rm "U_G_T.txt"
+    } 
+
+ 
+####################################################
+
+# Value stolen
+
+    function V_A() {
+
+        var_a="V_A.txt"
+        var_b="V_A_T.txt"
+
+        echo -e \#$hack{29,51} > V_A.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "V_A.txt"
+        rm "V_A.txt"
+    } 
+
+    function V_B() {
+
+        var_a="V_B.txt"
+        var_b="V_B_T.txt"
+
+        echo -e \#$hack{13,45,4} > V_B.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "V_B.txt"
+        rm "V_B_T.txt"
+    } 
+
+    function V_C() {
+
+        var_a="V_C.txt"
+        var_b="V_C_T.txt"
+
+        echo -e \#$hack{23,3,6,18,49,5,21,7} > V_C.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "V_C.txt"
+        rm "V_C_T.txt"
+    } 
+
+    function V_D() {
+
+        var_a="V_D.txt"
+        var_b="V_D_T.txt"
+
+        echo -e \#$hack{12,14,20} > V_D.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "V_D.txt"
+        rm "V_D_T.txt"
+    } 
+
+    function V_E() {
+
+        var_a="V_E.txt"
+        var_b="V_E_T.txt"
+
+        echo -e \#$hack{9,25,19,15,22,37,42,11,26} > V_E.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "V_E.txt"
+        rm "V_E_T.txt"
+    } 
+
+    function V_F() {
+
+        var_a="V_F.txt"
+        var_b="V_F_T.txt"
+
+        echo -e \#$hack{17,48,56,1,16,41,34,33,43,32,44} > V_F.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "V_F.txt"
+        rm "V_F_T.txt"
+    } 
+
+    function V_G() {
+
+        var_a="V_G.txt"
+        var_b="V_G_T.txt"
+
+        echo -e \#$hack{35,24,55,53} > V_G.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "V_G.txt"
+        rm "V_G_T.txt"
+    } 
+
+    function V_H() {
+
+        var_a="V_H.txt"
+        var_b="V_H_T.txt"
+
+        echo -e \#$hack{40,54,31,30,10} > V_H.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "V_H.txt"
+        rm "V_H_T.txt"
+    } 
+
+    function V_I() {
+
+        var_a="V_I.txt"
+        var_b="V_I_T.txt"
+
+        echo -e \#$hack{1,23,25,28,32,33,34,35,36,39,40,41,42,43,45,48,49,51,53,54,55,56} > V_I.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "V_I.txt"
+        rm "V_I_T.txt"
+    } 
+
+#####################################
+
+# Currency recovered
+
+    function R_all() {
+
+        var_a="R_all.txt"
+        var_b="R_all_T.txt"
+
+        echo -e \#$hack{51,13,5,12,14} > R_all.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "R_all.txt"
+        rm "R_all_T.txt"
+    }
+
+    function R_none() {
+
+        var_a="R_none.txt"
+        var_b="R_none_T.txt"
+
+        echo -e \#$hack{1,3,4,6,7,8,9,10,11,15,16,17,18,19,20,21,22,23,24,25,26,29,30,31,32,33,34,35,37,40,41,42,43,44,45,48,49,53,54,55,56} > R_none.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "R_none.txt"
+        rm "R_none_T.txt"
+    }
+
+    function R_U() {
+
+        var_a="R_U.txt"
+        var_b="R_U_T.txt"
+
+        echo -e \#$hack{28,36,39} > R_U.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "R_U.txt"
+        rm "R_U_T.txt"
+    }
+
+#####################################
+
+# Hack exploit
+
+    function E_A() {
+
+        var_a="E_A.txt"
+        var_b="E_A_T.txt"
+
+        echo -e \#$hack{3,4,12,15,20,21,23,43,44,49,53,56} > E_A.txt
+
+        format_text 
+        table_all_data 
+        totals
+
+        rm "E_A.txt"
+        rm "E_A_T.txt"
+    }
+    
+    function E_B() {
+
+    var_a="E_B.txt"
+    var_b="E_B_T.txt"
+
+    echo -e \#$hack{11,17,19} > E_B.txt
+
+    format_text 
+    table_all_data 
+    totals
+
+    rm "E_B.txt"
+    rm "E_B_T.txt"
+
+    }
+
+    function E_C() {
+
+    var_a="E_C.txt"
+    var_b="E_C_T.txt"
+
+    echo -e \#$hack{1,4} > E_C.txt
+
+    format_text 
+    table_all_data 
+    totals
+
+    rm "E_C.txt"
+    rm "E_C_T.txt"
+
+    }
+
+    function E_D() {
+
+    var_a="E_D.txt"
+    var_b="E_D_T.txt"
+
+    echo -e \#$hack18 > E_D.txt
+
+    format_text 
+    table_all_data 
+    totals
+
+    rm "E_D.txt"
+    rm "E_D_T.txt"
+
+    }
+
+    function E_E() {
+
+    var_a="E_E.txt"
+    var_b="E_E_T.txt"
+
+    echo -e \#$hack41 > E_E.txt
+
+    format_text 
+    table_all_data 
+    totals
+
+    rm "E_E.txt"
+    rm "E_E_T.txt"
+
+    }
+
+    function E_F() {
+
+    var_a="E_F.txt"
+    var_b="E_F_T.txt"
+
+    echo -e \#$hack9 > E_F.txt
+
+    format_text 
+    table_all_data 
+    totals
+
+    rm "E_F.txt"
+    rm "E_F_T.txt"
+
+    }
+
+    function E_G() {
+
+    var_a="E_G.txt"
+    var_b="E_G_T.txt"
+
+    echo -e \#$hack{2,5,6,8,10,13,14,16,22,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,42,45,47,48,50,51,54,55} > E_G.txt
+
+    format_text 
+    table_all_data 
+    totals
+
+    rm "E_G.txt"
+    rm "E_G_T.txt"
+
+    }
+
+    function E_H() {
+
+    var_a="E_H.txt"
+    var_b="E_H_T.txt"
+
+    echo -e \#$hack{46,52}  > E_H.txt
+
+    format_text 
+    table_all_data 
+    totals
+
+    rm "E_H.txt"
+    rm "E_H_T.txt"
+
+    }
