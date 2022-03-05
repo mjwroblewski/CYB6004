@@ -62,7 +62,7 @@
 
 # "arrays" function inserts a delimiter "#" at the beginning of variables "$hack1 - $hack56 then copies variables to $arraysfile
 # "sed" inserts line breaks at delimiters, deletes the blank top line then deletes the delimeter
-# The "$arraysfile" document is the source for user-generated search results
+# The "$arraysfile" document is the source for subsequent user-generated search results
 
 arraysfile=arrays.txt
 
@@ -94,7 +94,7 @@ Y_2020_file="Y_2020_file.txt"
 Y_2021_file="Y_2021_file.txt"
 Y_2022_file="Y_2022_file.txt"
 
-#Year variables
+# Year variables
 
 Y_2011_T="Y_2011_T.txt"
 Y_2012_T="Y_2012_T.txt"
@@ -124,291 +124,264 @@ H_2020=hack{45..50}
 H_2021=hack{51..55}
 H_2022=hack56
 
+# 
 
+# Function extracts the data from arrays.txt and prints the data for all years as a formatted table
 
     function arrays() {
 
+        year_a="arrays.txt"
+        year_b="arrays_T.txt"
+
         echo -e \#$hack{1..56} > arrays.txt
 
-            sed -i 's/#/\n&/g' $arraysfile
+            sed -i 's/#/\n&/g' $year_a
 
-                sed -i '1d' $arraysfile
-    
-                    sed -i 's/#//g' $arraysfile
+                sed -i '1d' $year_a
 
-                cat $arraysfile > arrays_T.txt 
+                    sed -i 's/#//g' $year_a
 
-                    sed -i 's/,//g' arrays_T.txt
+                        cat $year_a > "arrays_T.txt"
+
+                            sed -i 's/,//g' $year_b
+        
+        table_all_data 
+        totals
+        rm $year_a
+        rm $year_b        
     }
 
-    function Y_2011() {
+# Function removes the delimiters from the array in stages. Varaible "year_a" is formatted for display in tables, "year_b" is unformatted and used for calculations only
 
-        echo -e \#$hack{1..2} > Y_2011_file.txt
+    function format_year() {
 
-            sed -i 's/#/\n&/g' $Y_2011_file
+            sed -i 's/#/\n&/g' $year_a
 
-                sed -i '1d' $Y_2011_file
+                sed -i '1d' $year_a
     
-                    sed -i 's/#//g' $Y_2011_file
+                    sed -i 's/#//g' $year_a
 
-        cat $Y_2011_file > $Y_2011_T
-        
-            sed -i 's/,//g' $Y_2011_T
-
-        wc -l $Y_2011_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2011_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2011_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2011_T 
-      }
+                        cat $year_a > "$year_b"
+                        
+                            sed -i 's/,//g' $year_b
+    }
 
 
-    function Y_2012() {
+# Function prints the data for the selected timeframe (variable $year_a) as a formatted table
 
-        echo -e \#$hack{3..6} > Y_2012_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2012_file
-
-                sed -i '1d' $Y_2012_file
-    
-                    sed -i 's/#//g' $Y_2012_file
-
-        cat $Y_2012_file > $Y_2012_T
-        
-            sed -i 's/,//g' $Y_2012_T
-
-        wc -l $Y_2012_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2012_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2012_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2012_T 
-      }
-
-    function Y_2013() {
-      
-        echo -e \#$hack{7..9} > Y_2013_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2013_file
-
-                sed -i '1d' $Y_2013_file
-    
-                    sed -i 's/#//g' $Y_2013_file
-
-        cat $Y_2013_file > $Y_2013_T
-        
-            sed -i 's/,//g' $Y_2013_T          
-
-        wc -l $Y_2013_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2013_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2013_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2013_T
-      }
-    
-    function Y_2014() {
-      
-        echo -e \#$hack{10..16} > Y_2014_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2014_file
-
-                sed -i '1d' $Y_2014_file
-    
-                    sed -i 's/#//g' $Y_2014_file
-
-        cat $Y_2014_file > $Y_2014_T
-        
-            sed -i 's/,//g' $Y_2014_T          
-      
-        wc -l $Y_2014_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2014_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2014_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2014_T
-      }
-        
-    function Y_2015() {
-      
-        echo -e \#$hack{17..21} > Y_2015_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2015_file
-
-                sed -i '1d' $Y_2015_file
-    
-                    sed -i 's/#//g' $Y_2015_file
-
-        cat $Y_2015_file > $Y_2015_T
-        
-            sed -i 's/,//g' $Y_2015_T          
-      
-        wc -l $Y_2015_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2015_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2015_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2015_T
-      }
-
-    function Y_2016() {
-      
-        echo -e \#$hack{22..25} > Y_2016_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2016_file
-
-                sed -i '1d' $Y_2016_file
-    
-                    sed -i 's/#//g' $Y_2016_file
-
-        cat $Y_2016_file > $Y_2016_T
-        
-            sed -i 's/,//g' $Y_2016_T          
-      
-        wc -l $Y_2016_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2016_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2016_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2016_T
-      }        
-
-    function Y_2017() {
-      
-        echo -e \#$hack{26..28} > Y_2017_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2017_file
-
-                sed -i '1d' $Y_2017_file
-    
-                    sed -i 's/#//g' $Y_2017_file
-
-        cat $Y_2017_file > $Y_2017_T
-        
-            sed -i 's/,//g' $Y_2017_T          
-
-        wc -l $Y_2017_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2017_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2017_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2017_T
-      }
-    
-    function Y_2018() {
-      
-        echo -e \#$hack{29..36} > Y_2018_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2018_file
-
-                sed -i '1d' $Y_2018_file
-    
-                    sed -i 's/#//g' $Y_2018_file
-
-        cat $Y_2018_file > $Y_2018_T
-        
-            sed -i 's/,//g' $Y_2018_T          
-
-        wc -l $Y_2018_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2018_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2018_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2018_T
-      }
-    
-    function Y_2019() {
-      
-        echo -e \#$hack{37..44} > Y_2019_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2019_file
-
-                sed -i '1d' $Y_2019_file
-    
-                    sed -i 's/#//g' $Y_2019_file
-
-        cat $Y_2019_file > $Y_2019_T
-        
-            sed -i 's/,//g' $Y_2019_T          
-
-        wc -l $Y_2019_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2019_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2019_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2019_T
-      }
-    
-    function Y_2020() {
-      
-        echo -e \#$hack{45..50} > Y_2020_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2020_file
-
-                sed -i '1d' $Y_2020_file
-    
-                    sed -i 's/#//g' $Y_2020_file
-
-        cat $Y_2020_file > $Y_2020_T
-        
-            sed -i 's/,//g' $Y_2020_T          
-
-        wc -l $Y_2020_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2020_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2020_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2020_T
-      }
-    
-    function Y_2021() {
-      
-        echo -e \#$hack{51..55} > Y_2021_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2021_file
-
-                sed -i '1d' $Y_2021_file
-    
-                    sed -i 's/#//g' $Y_2021_file
-
-        cat $Y_2021_file > $Y_2021_T
-        
-            sed -i 's/,//g' $Y_2021_T          
-
-        wc -l $Y_2021_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2021_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2021_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2021_T
-      }
-    
-    function Y_2022() {
-      
-        echo -e \#$hack56 > Y_2022_file.txt
-
-            sed -i 's/#/\n&/g' $Y_2022_file
-
-                sed -i '1d' $Y_2022_file
-    
-                    sed -i 's/#//g' $Y_2022_file
-
-        cat $Y_2022_file > $Y_2022_T
-        
-            sed -i 's/,//g' $Y_2022_T          
-
-        wc -l $Y_2022_file | awk '{print "Total hacks conducted: "$1}'
-        awk '{ S+=$5 } END {print "Total units stolen: "S}' $Y_2022_T
-        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $Y_2022_T 
-        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $Y_2022_T
-      }
-        
     function table_all_data() {
                       
         awk -F":" '
 
         BEGIN {
     
-        printf ("_____________________________________________________________________________________________________________________\n");
+            printf ("_____________________________________________________________________________________________________________________\n");
 
-        printf ("%-5s %-5s %-15s %-15s %-14s %-14s %-8s %-0s \n","| Hack","| Year","| Exchange","| Currency","| Units"," | \$ Value"," | \$ Recovered","| Vulnerability          |");
+            printf ("%-5s %-5s %-15s %-15s %-14s %-14s %-8s %-0s \n","| Hack","| Year","| Exchange","| Currency","| Units"," | \$ Value"," | \$ Recovered","| Vulnerability          |");
  
-        printf ("_____________________________________________________________________________________________________________________\n");
+            printf ("_____________________________________________________________________________________________________________________\n");
 
-    }
+        }
 
-    {
+        {
+        
         printf ("| %-4s | %-4s | %-13s | %-13s | %-13s | %-12s | %-11s | %-22s |\n", $1, $2, $3, $4, $5, $6, $7, $8 );
 
         printf ("_____________________________________________________________________________________________________________________\n")
 
+        }' $year_a
+    }
 
-    }' $Y_2018_file
+# Function prints the number of events listed in the table, including the totals for each of columns 4 to 6
 
+    function totals() {
+
+        wc -l $year_a | awk '{print "Total hacks conducted: "$1}'
+        awk '{ S+=$5 } END {print "Total units stolen: "S}' $year_b
+        awk '{ S+=$6 } END {print "Total value stolen: $"S}' $year_b
+        awk '{ S+=$7 } END {print "Total value recovered: $"S}' $year_b 
+    }
+
+# Function creates a .txt file for the selected year(s) from the array, prints the data for the selected year by referencing the previous functions, then deletes the .txt files
+
+    function Y_2011() {
+
+        year_a="$Y_2011_file"
+        year_b="$Y_2011_T"
+
+        echo -e \#$hack{1..2} > Y_2011_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2011_file
+        rm $Y_2011_T
+    }
+
+    function Y_2012() {
+
+        year_a="$Y_2012_file"
+        year_b="$Y_2012_T"    
+
+        echo -e \#$hack{3..6} > Y_2012_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2012_file
+        rm $Y_2012_T
+    }
+ 
+    function Y_2013() {
+
+        year_a="$Y_2013_file"
+        year_b="$Y_2013_T"  
+
+        echo -e \#$hack{7..9} > Y_2013_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2013_file
+        rm $Y_2013_T
     }
     
-    arrays
-    table_all_data
-    Y_2018
+    function Y_2014() {
 
+        year_a="$Y_2014_file"
+        year_b="$Y_2014_T"  
+
+        echo -e \#$hack{10..16} > Y_2014_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2014_file
+        rm $Y_2014_T
+    }
+        
+    function Y_2015() {
+
+        year_a="$Y_2015_file"
+        year_b="$Y_2015_T"  
+
+        echo -e \#$hack{17..21} > Y_2015_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2015_file
+        rm $Y_2015_T
+    }
+
+    function Y_2016() {
+
+        year_a="$Y_2016_file"
+        year_b="$Y_2016_T"  
+
+        echo -e \#$hack{22..25} > Y_2016_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2016_file
+        rm $Y_2016_T
+    }        
+
+    function Y_2017() {
+
+        year_a="$Y_2017_file"
+        year_b="$Y_2017_T"  
+
+        echo -e \#$hack{26..28} > Y_2017_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2017_file
+        rm $Y_2017_T
+    }
+    
+    function Y_2018() {
+
+        year_a="$Y_2018_file"
+        year_b="$Y_2018_T"  
+
+        echo -e \#$hack{29..36} > Y_2018_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2018_file
+        rm $Y_2018_T
+    }
+    
+    function Y_2019() {
+
+        year_a="$Y_2019_file"
+        year_b="$Y_2019_T"  
+
+        echo -e \#$hack{37..44} > Y_2019_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2019_file
+        rm $Y_2019_T
+    }
+    
+    function Y_2020() {
+
+        year_a="$Y_2020_file"
+        year_b="$Y_2020_T"  
+
+        echo -e \#$hack{45..50} > Y_2020_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2020_file
+        rm $Y_2020_T
+    }
+    
+    function Y_2021() {
+
+        year_a="$Y_2021_file"
+        year_b="$Y_2021_T"  
+
+        echo -e \#$hack{51..55} > Y_2021_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2021_file
+        rm $Y_2021_T
+    }
+    
+    function Y_2022() {
+
+        year_a="$Y_2022_file"
+        year_b="$Y_2022_T"  
+
+        echo -e \#$hack56 > Y_2022_file.txt
+
+        format_year 
+        table_all_data 
+        totals
+
+        rm $Y_2022_file
+        rm $Y_2022_T
+    }
 
 
