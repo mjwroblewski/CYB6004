@@ -23,14 +23,14 @@ Pass_lock="Password/not_a_password.txt"
 Pass_lock_hash=$(cat "$Pass_lock")
 
 # Formatting variables
-black=-'e \033[30m'
-red='-e \033[31m'
-green='-e \033[32m'
-brown='-e \033[33m'
-blue='-e \033[34m'
-purple='-e \033[35m'
-cyan='-e \033[36m'
-clear='\033[0m'
+black="\033[30m"
+red="\033[31m"
+green="\033[32m"
+brown="\033[33m"
+blue="\033[34m"
+purple="\033[35m"
+cyan="\033[36m"
+clear="\033[0m"
 
 # Data extraction variables
 # Scrape webpage, extract and format data
@@ -41,70 +41,72 @@ formatfile="format.txt"
 arraysfile="arrays.txt"
 url="https://cryptosec.info/exchange-hacks/"
 
+
+
+
 # Hacking event variables
+
 # Year
-Y_2011=hack{1,2}
-Y_2012=hack{3,4,5,6}
-Y_2013=hack{7,8,9}
-Y_2014=hack{10,11,12,13,14,15,16}
-Y_2015=hack{17,18,19,20,21}
-Y_2016=hack{22,23,24,25}
-Y_2017=hack{26,27,28}
-Y_2018=hack{29,30,31,32,33,34,35,36}
-Y_2019=hack{37,38,39,40,41,42,43,44}
-Y_2020=hack{45,46,47,48,49,50}
-Y_2021=hack{51,52,53,54,55}
-Y_2022=hack56
+Y_2011_file="Y_2011_file.txt"
+Y_2012_file="Y_2012_file.txt"
+Y_2013_file="Y_2013_file.txt"
+Y_2014_file="Y_2014_file.txt"
+Y_2015_file="Y_2015_file.txt"
+Y_2016_file="Y_2016_file.txt"
+Y_2017_file="Y_2017_file.txt"
+Y_2018_file="Y_2018_file.txt"
+Y_2019_file="Y_2019_file.txt"
+Y_2020_file="Y_2020_file.txt"
+Y_2021_file="Y_2021_file.txt"
+Y_2022_file="Y_2022_file.txt"
 
 # Currency
-C_Bitcoin=hack{1,3,4,5,6,8,9,10,11,12,13,17,18,19,20,21,24,25,26,29}
-C_cash=hack43
-C_EOS=hack41
-C_Ethereum=hack44
-C_Multiple=hack{7,14,16,22,23,32,33,35,37,45,56}
-C_NEM=hack30
-C_Nano=hack31
-C_Vericoin=hack15
-C_undisclosed_stolen=hack{28,34,49,40,42,48,49,51,53,54,55}
-Data=hack{2,27,38,46,47,50,52}
+C_Bitcoin="hack{1,3,4,5,6,8,9,10,11,12,13,17,18,19,20,21,24,25,26,29}"
+C_cash="hack43"
+C_EOS="hack41"
+C_Ethereum="hack44"
+C_Multiple="hack{7,14,16,22,23,32,33,35,37,45,56}"
+C_NEM="hack30"
+C_Nano="hack31"
+C_Vericoin="hack15"
+C_Undisclosed="hack{28,34,49,40,42,48,49,51,53,54,55}"
+C_Data"=hack{2,27,38,46,47,50,52}"
 
 # Units stolen
-U_0-99=hack{13,29}
-U_100-999=hack{8,9,11,14,18,19,21,26}
-U_1000-9999hack{3,4,5,6,17,20}
-U_10000-99999=hack{7,10,12,16,22,24,44}
-U_100000-999999=hack{}
-U_1000000-9999999=hack{15}
-U_10000000-99999999=hack{31,37,43}
-U_>100000000=hack{30}
-U_undisclosed=hack{1,23,25,28,32,33,34,35,36,39,40,41,42,43,45,48,49,51,53,54,55,56}
+U_A="hack{29,13,12}"      <4,999
+U_B="hack{18,8,21,20,14,26,9}"    1,000-4,999
+U_C="hack{11,19,17,6,4,5,3}" 5,000-49,999
+U_D
+U_E="hack{24,22,7,16,44,10}" 100,000-999,999
+U_F="hack{15,31,43,37,30}" >5,000,000
+U_G"=hack{1,23,25,28,32,33,34,35,36,39,40,41,42,45,48,49,51,53,54,55,56}" Undisclosed
 
 # Value stolen
-V_49999=hack{29,51}
-V_50000-99999=hack{4,13,45}
-V_100000-499999=hack{3,5,6,7,18,21,23,49}
-V_500000-999999=hack{12,14,20}
-V_1000000-4999999=hack{9,11,15,19,22,25,26,37,42}
-V_5000000-9999999=hack{1,16,17,48,56}
-V_10000000-49999999=hack{32,33,34,41,43,44}
-V_50000000-99999999=hack{24,35,53,55}
-V_>100000000=hack{10,30,31,40,54}
-V_undisclosed=hack{1,23,25,28,32,33,34,35,36,39,40,41,42,43,45,48,49,51,53,54,55,56}
+V_A="hack{29,51}"    <49,999
+V_B="hack{13,45,4}"  50,000-99,999
+V_C"=hack{23,3,6,18,49,5,21,7}"     100,000-499,999
+V_D="hack{12,14,20}"     500,000-999,999
+V_E="hack{9,25,19,15,22,37,42,11,26}"     1,000000-4,999,999
+V_F="hack{17,48,56,1,16,41,34,33,43,32,44}"     5,000,000-49,999,999
+V_G="hack{35,24,55,53}"     50,000,000-99,999,999
+V_H="hack{40,54,31,30,10}"     >100,000,000
+V_I="hack{1,23,25,28,32,33,34,35,36,39,40,41,42,43,45,48,49,51,53,54,55,56}" undisclosed
 
-# Currency returned
-R_all=hack{5,12,13,14,51}
-R_none=hack{1,3,4,6,7,8,9,10,11,15,16,17,18,19,20,21,22,23,24,25,26,29,30,31,32,33,34,35,37,40,41,42,43,44,45,48,49,53,54,55,56}
-R_undisclosed=hack{28,36,39}
+
+# Currency recovered
+R_all="hack{51,13,5,12,14}" Yes
+R_none="hack{1,3,4,6,7,8,9,10,11,15,16,17,18,19,20,21,22,23,24,25,26,29,30,31,32,33,34,35,37,40,41,42,43,44,45,48,49,53,54,55,56}" No
+R_U="hack{28,36,39}" Undisclosed
 
 # Hack exploit
-E_hot=hack{3,4,12,15,20,21,23,43,44,49,53,56}
-E_cold=hack{11,17,19}
-E_credentials=hack{1,4}
-E_error=hack{18}
-E_internal=hack{41}
-E_server=hack{9}
-E_undisclosed=hack{2,5,6,8,10,13,14,16,22,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,42,45,47,48,50,51,54,55}
-E_unsuccessful=hack{46,52}
+E_A="hack{3,4,12,15,20,21,23,43,44,49,53,56}"     hot 
+E_B="hack{11,17,19}"   cold 
+E_C="hack{1,4}"       credentials
+E_D="hack{18}"        internal error 
+E_E="hack{41}"        internal theft 
+E_F="hack{9}"         server vulnerability
+E_G="hack{2,5,6,8,10,13,14,16,22,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,42,45,47,48,50,51,54,55}"    undisclosed 
+E_H="hack{46,52}"     unsuccessful 
 
 
 #############
@@ -116,7 +118,9 @@ E_unsuccessful=hack{46,52}
 # Outputs data to $dumpfile
   
     function dump_webpage() {
+
         $curl -o $dumpfile $url &>/dev/null
+        
         check_errors
 }
 
@@ -124,6 +128,7 @@ E_unsuccessful=hack{46,52}
 # Function terminates the script if exit code is not "0"
 
     function check_errors() {
+
         [ $? -ne 0 ] && echo "There was an error downloading this page..." && exit -1
     } 
 
@@ -131,6 +136,7 @@ E_unsuccessful=hack{46,52}
 # Outputs data to $stripfile
 
     function remove_html() {
+
         sed -i 's/&#x27;/ /g' $dumpfile
         
             grep ".*" $dumpfile | sed -n '/[<h3><li>]/ {
@@ -146,6 +152,7 @@ E_unsuccessful=hack{46,52}
 # Outputs data to $formatfile
 
     function formatting() {
+
         sed -i 's/^[\t]*//;s/^[\t]*$//;s/[ ]\+/ /g' $stripfile    
             grep . -A1 $stripfile | grep -v "^--$"
 
@@ -155,13 +162,12 @@ E_unsuccessful=hack{46,52}
 ######################################################################################################
 # NOTE: The next step was to extract hacking event data from $formatfile                             #                 
 # Despite best efforts this was not achieved within the timeframe                                    #
-# The process would have proceeded as follows                                                        #
+# The process would have proceeded using functions as follows                                        #
 #                                                                                                    #
 # Extracted data would be split into columns for each element:                                       #
 # Hack #:Year:Exchange:Currency:Units:Value stolen:Value recovered:Hack type/vulnerability exploited #
-# Elements would be outputted as arrays to $arraysfile and used as inputs for subsequent script      #
+# Elements would be outputted as arrays to $arrays.txt and used as inputs for subsequent script      #
 # The arrays are presented below                                                                     #
-# The script will next execute the "arrays" function and output the arrays to $arraysfile            # 
 #                                                                                                    # 
     hack1="1:2011:Mt Gox:Bitcoin:Undisclosed:8,750,000:0:Stolen credentials"                         # 
     hack2="2:2011:Bitcoin7:-:-:-:-:Data - Undisclosed"                                               # 
@@ -222,20 +228,26 @@ E_unsuccessful=hack{46,52}
                                                                                                      #
 ######################################################################################################
 
-# "arrays" function inserts a delimiter "#" at the beginning of variables "$hack1 - $hack56 then copies variables to $arraysfile
-# "sed" inserts line breaks at delimiters, deletes the blank top line then deletes the delimeter
-# The "$arraysfile" document is the source for user-generated search results
+# Function creates arrays.txt from arrays $hack{1..56} inserts a delimiter "#" at the beginning of each variables
+# "sed" commands 1-3 insert line breaks at "#" delimiters, deletes the blank top line then deletes the delimeter
+# "sed" command 4 deletes the "," for calculation purposes
 
     function arrays() {
 
+        var_a="arrays.txt"
+        var_b="arrays_T.txt"
+
         echo -e \#$hack{1..56} > arrays.txt
 
-            sed -i 's/#/\n&/g' $arraysfile
+            sed -i 's/#/\n&/g' $var_a
 
-                sed -i '1d' $arraysfile
-    
-                    sed -i 's/#//g' $arraysfile
+                sed -i '1d' $var_a
 
+                    sed -i 's/#//g' $var_a
+
+                        cat $var_a > "arrays_T.txt"
+
+                            sed -i 's/,//g' $var_b
     } 
 
 ###########################
@@ -269,7 +281,6 @@ E_unsuccessful=hack{46,52}
             menu_main
 
         fi
-
     }
 
 ##################
