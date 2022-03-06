@@ -18,11 +18,11 @@
 ##############
 
 # Password variables
-Pass_unlock_hash=$(echo "$Pass_unlock" | sha256sum)
+Pass_unlock_hash="$(echo "$Pass_unlock" | sha256sum)"
 Pass_lock="Password/not_a_password.txt"
-Pass_lock_hash=$(cat "$Pass_lock")
+Pass_lock_hash="$(cat "$Pass_lock")"
 
-# Formatting variables
+# Text colour formatting variables
 black="\033[30m"
 red="\033[31m"
 green="\033[32m"
@@ -41,9 +41,7 @@ formatfile="format.txt"
 arraysfile="arrays.txt"
 url="https://cryptosec.info/exchange-hacks/"
 
-
 # Hacking event variables
-
 # Year
 Y_2011_file="Y_2011_file.txt"
 Y_2012_file="Y_2012_file.txt"
@@ -68,43 +66,41 @@ C_NEM="hack30"
 C_Nano="hack31"
 C_Vericoin="hack15"
 C_Undisclosed="hack{28,34,49,40,42,48,49,51,53,54,55}"
-C_Data"=hack{2,27,38,46,47,50,52}"
+C_Data="hack{2,27,38,46,47,50,52}"
 
 # Units stolen
-U_A="hack{29,13,12}"      <1,000
-U_B="hack{18,8,21,20,14,26,9}"    1,000-4,999
-U_C="hack{11,19,17,6,4,5,3}" 5,000-49,999
-U_D="hack{24,22,7,16,44,10}" 100,000-999,999
-U_E="hack{15,31,43,37,30}" >8,000,000
-U_F="hack{1,23,25,28,32,33,34,35,36,39,40,41,42,45,48,49,51,53,54,55,56}" Undisclosed
+U_A="hack{29,13,12}"
+U_B="hack{18,8,21,20,14,26,9}"
+U_C="hack{11,19,17,6,4,5,3}"
+U_D="hack{24,22,7,16,44,10}"
+U_E="hack{15,31,43,37,30}"
+U_F="hack{1,23,25,28,32,33,34,35,36,39,40,41,42,45,48,49,51,53,54,55,56}"
 
 # Value stolen
-V_A="hack{29,51}"    <50,000
-V_B="hack{13,45,4}"  50,000-99,999
-V_C"=hack{23,3,6,18,49,5,21,7}"     100,000-499,999
-V_D="hack{12,14,20}"     500,000-999,999
-V_E="hack{9,25,19,15,22,37,42,11,26}"     1,000000-4,999,999
-V_F="hack{17,48,56,1,16,41,34,33,43,32,44}"     5,000,000-49,999,999
-V_G="hack{35,24,55,53}"     50,000,000-99,999,999
-V_H="hack{40,54,31,30,10}"     >100,000,000
-V_I="hack{1,23,25,28,32,33,34,35,36,39,40,41,42,43,45,48,49,51,53,54,55,56}" undisclosed
-
+V_A="hack{29,51}"
+V_B="hack{13,45,4}"
+V_C="hack{23,3,6,18,49,5,21,7}"
+V_D="hack{12,14,20}"
+V_E="hack{9,25,19,15,22,37,42,11,26}"
+V_F="hack{17,48,56,1,16,41,34,33,43,32,44}"
+V_G="hack{35,24,55,53}"
+V_H="hack{40,54,31,30,10}"
+V_I="hack{1,23,25,28,32,33,34,35,36,39,41,42,43,45,48,49,51,53,54,55,56}"
 
 # Currency recovered
-R_all="hack{51,13,5,12,14}" Yes
-R_none="hack{1,3,4,6,7,8,9,10,11,15,16,17,18,19,20,21,22,23,24,25,26,29,30,31,32,33,34,35,37,40,41,42,43,44,45,48,49,53,54,55,56}" No
-R_U="hack{28,36,39}" Undisclosed
+R_all="hack{51,13,5,12,14}"
+R_none="hack{1,3,4,6,7,8,9,10,11,15,16,17,18,19,20,21,22,23,24,25,26,29,30,31,32,33,34,35,37,40,41,42,43,44,45,48,49,53,54,55,56}"
+R_U="hack{28,36,39}"
 
 # Hack exploit
-E_A="hack{3,4,12,15,20,21,23,43,44,49,53,56}"     hot 
-E_B="hack{11,17,19}"   cold 
-E_C="hack{1,4}"       credentials
-E_D="hack{18}"        internal error 
-E_E="hack{41}"        internal theft 
-E_F="hack{9}"         server vulnerability
-E_G="hack{2,5,6,8,10,13,14,16,22,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,42,45,47,48,50,51,54,55}"    undisclosed 
-E_H="hack{46,52}"     unsuccessful 
-
+E_A="hack{3,4,12,15,20,21,23,43,44,49,53,56}"
+E_B="hack{11,17,19}"
+E_C="hack{1,4}"
+E_D="hack18"
+E_E="hack41" 
+E_F="hack9"
+E_G="hack{2,5,6,8,10,13,14,16,22,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,42,45,47,48,50,51,54,55}" 
+E_H="hack{46,52}" 
 
 #############
 # FUNCTIONS #
@@ -141,8 +137,7 @@ E_H="hack{46,52}"     unsuccessful
 		        s/&#8217;//g
                 p
 	        }' > $stripfile
-        
-                sed -i '1,/id="ha-large-header" -->/d' $stripfile        
+                    sed -i '1,/id="ha-large-header" -->/d' $stripfile        
     }
 
 # "formatting" function removes whitespace and multiple blank lines from $stripfile
@@ -156,73 +151,74 @@ E_H="hack{46,52}"     unsuccessful
     } > $formatfile 
 
 
+
 ######################################################################################################
-# NOTE: The next step was to extract hacking event data from $formatfile                             #                 
-# Despite best efforts this was not achieved within the timeframe                                    #
-# The process would have proceeded using functions as follows                                        #
-#                                                                                                    #
-# Extracted data would be split into columns for each element:                                       #
-# Hack #:Year:Exchange:Currency:Units:Value stolen:Value recovered:Hack type/vulnerability exploited #
-# Elements would be outputted as arrays to $arrays.txt and used as inputs for subsequent script      #
-# The arrays are presented below                                                                     #
-#                                                                                                    # 
-    hack1="1:2011:Mt Gox:Bitcoin:Undisclosed:8,750,000:0:Stolen credentials"                         # 
-    hack2="2:2011:Bitcoin7:-:-:-:-:Data - Undisclosed"                                               # 
-    hack3="3:2012:Bitcoinica:Bitcoin:43,554:228,000:0:Hot wallet"                                    # 
-    hack4="4:2012:Bitcoinica:Bitcoin:38,000:87,000:0:Hot wallet"                                     # 
-    hack5="5:2012:Bitcoinica:Bitcoin:40,000:300,000:300,000:Undisclosed"                             # 
-    hack6="6:2012:Bitfloor:Bitcoin:24,000:250,000:0:Undisclosed"                                     # 
-    hack7="7:2013:Vircurex:Various:250,117:352,000:0:Stolen credentials"                             # 
-    hack8="8:2013:Picostocks:Bitcoin:1,300:Undisclosed:0:Undisclosed"                                # 
-    hack9="9:2013:Inputs.io:Bitcoin:4,100:1,200,000:0:Server vulnerability"                          # 
-    hack10="10:2014:Mt Gox:Bitcoin:844,408:661,348,000:0:Undisclosed"                                # 
-    hack11="11:2014:Picostocks:Bitcoin:5,896:4,434,000:0:Cold wallet"                                # 
-    hack12="12:2014:Flexcoin:Bitcoin:896:600,000:600,000:Hot wallet"                                 # 
-    hack13="13:2014:Poloniex:Bitcoin:97:67,500:67,500:Undisclosed"                                   #
-    hack14="14:2014:Crypto Rush:Various:3,450:630,000:630,000:Undisclosed"                           #
-    hack15="15:2014:MintPal:Vericoin:8,000,000:1,933,000:0:Hot wallet"                               #
-    hack16="16:2014:Cryptysy:Various:313,000:9,580,000:0:Undisclosed"                                #
-    hack17="17:2015:Bitstamp:Bitcoin:19,000:5,100,000:0:Cold wallet"                                 # 
-    hack18="18:2015:796:Bitcoin:1,000:270,000:0:Internal error"                                      #
-    hack19="19:2015:BTER:Bitcoin:7,170:1,750,000:0:Cold wallet"                                      #
-    hack20="20:2015:KipCoin:Bitcoin:3,000:728,000:0:Hot wallet"                                      #
-    hack21="21:2015:Bitfinex:Bitcoin:1,400:329,000:0:Hot wallet"                                     #
-    hack22="22:2016:Gatecoin:Various:185,250:2,140,000:0:Undisclosed"                                #
-    hack23="23:2016:ShapeShift:Various:Undisclosed:200,000:0:Hot wallet"                             #
-    hack24="24:2016:Bitfinex:Bitcoin:120,000:72,000,000:0:Undisclosed"                               #
-    hack25="25:2016:Bitcurex:Bitcoin:Undisclosed:1,500,000:0:Undisclosed"                            #
-    hack26="26:2017:Yapizon:Bitcoin:3,831:4,850,000:0:Undisclosed"                                   #
-    hack27="27:2017:Bithumb:-:-:-:-:Data - Undisclosed"                                              #
-    hack28="28:2017:YouBit:Undisclosed:Undisclosed:Undisclosed:Undisclosed:Undisclosed"              #
-    hack29="29:2018:LocalBitcoins:Bitcoin:7.9:27,000:0:Undisclosed"                                  # 
-    hack30="30:2018:Coincheck:NEM:500,000,000:500,000,000:0:Undisclosed"                             #
-    hack31="31:2018:BitGrail:Nano:17,000,000:170,000,000:0:Undisclosed"                              #
-    hack32="32:2018:Coinrail:Various:Undisclosed:40,000,000:0:Undisclosed"                           #
-    hack33="33:2018:Bithumb:Various:Undisclosed:31,000,000:0:Undisclosed"                            #
-    hack34="34:2018:Bancor:Undisclosed:Undisclosed:23,000,000:0:Undisclosed"                         #
-    hack35="35:2018:Zaif:Various:Undisclosed:60,000,000:0:Undisclosed"                               #
-    hack36="36:2018:MapleChange:Undisclosed:Undisclosed:Undisclosed:Undisclosed:Undisclosed"         #
-    hack37="37:2019:Cryptopia:Various:48,019,391:3,620,000:0:Undisclosed"                            # 
-    hack38="38:2019:Coinmama:-:-:-:-:Data - Undisclosed"                                             #
-    hack39="39:2019:DragonEX:Undisclosed:Undisclosed:Undisclosed:Undisclosed:Undisclosed"            #
-    hack40="40:2019:Coinbene:Undisclosed:Undisclosed:100,000,000:0:Undisclosed"                      #
-    hack41="41:2019:Bithumb:EOS:Undisclosed:13,000,000:0:Internal theft"                             #
-    hack42="42:2019:Bitrue:Undisclosed:Undisclosed:4,200,000:0:Undisclosed"                          #
-    hack43="43:2019:BITPoint:Cash:32,000,000:32,000,000:0:Hot wallet"                                #
-    hack44="44:2019:Upbit:Ethereum:342,000:49,000,000:0:Hot wallet"                                  #
-    hack45="45:2020:Altsbit:Various:Undisclosed:73,000:0:Undisclosed"                                # 
-    hack46="46:2020:BlockFi:-:-:-:-:Unsuccessful"                                                    #
-    hack47="47:2020:BuyUcoin:-:-:-:-:Data - Undisclosed"                                             #
-    hack48="48:2020:Eterbase:Undisclosed:Undisclosed:5,400,000:0:Undisclosed"                        #
-    hack49="49:2020:KuCoin:Undisclosed:Undisclosed:280,000:0:Hot wallet key theft"                   #
-    hack50="50:2020:Livecoin:-:-:-:-:Undisclosed"                                                    #
-    hack51="51:2021:Cryptopia:Undisclosed:Undisclosed:45,000:45,000:Undisclosed"                     # 
-    hack52="52:2021:Hotbit:-:-:-:-:Unsuccessful"                                                     #
-    hack53="53:2021:Liquid:Undisclosed:Undisclosed:80,000,000:0:Hot wallet"                          #
-    hack54="54:2021:BitMart:Undisclosed:Undisclosed:150,000,000:0:Undisclosed"                       #
-    hack55="55:2021:AscendEX:Undisclosed:Undisclosed:78,000,000:0:Undisclosed"                       #
-    hack56="56:2022:LCX:Various:Undisclosed:6,800,000:0:Hot wallet"                                  # 
-                                                                                                     #
+# NOTE: The next step was to extract hacking event data from $formatfile                                              
+# Despite best efforts this was not achieved within the timeframe                                    
+# The process would have proceeded using functions as follows                                        
+#                                                                                                    
+# Extracted data would be split into columns for each element:                                       
+# Hack #:Year:Exchange:Currency:Units:Value stolen:Value recovered:Hack type/vulnerability exploited 
+# Elements would be outputted as arrays to $arrays.txt and used as inputs for subsequent script      
+# The arrays are presented below                                                                     
+                                                                                                     
+    hack1="1:2011:Mt Gox:Bitcoin:Undisclosed:8,750,000:0:Stolen credentials"                          
+    hack2="2:2011:Bitcoin7:-:-:-:-:Data - Undisclosed"                                                
+    hack3="3:2012:Bitcoinica:Bitcoin:43,554:228,000:0:Hot wallet"                                     
+    hack4="4:2012:Bitcoinica:Bitcoin:38,000:87,000:0:Hot wallet"                                      
+    hack5="5:2012:Bitcoinica:Bitcoin:40,000:300,000:300,000:Undisclosed"                              
+    hack6="6:2012:Bitfloor:Bitcoin:24,000:250,000:0:Undisclosed"                                      
+    hack7="7:2013:Vircurex:Various:250,117:352,000:0:Stolen credentials"                              
+    hack8="8:2013:Picostocks:Bitcoin:1,300:Undisclosed:0:Undisclosed"                                 
+    hack9="9:2013:Inputs.io:Bitcoin:4,100:1,200,000:0:Server vulnerability"                           
+    hack10="10:2014:Mt Gox:Bitcoin:844,408:661,348,000:0:Undisclosed"                                 
+    hack11="11:2014:Picostocks:Bitcoin:5,896:4,434,000:0:Cold wallet"                                 
+    hack12="12:2014:Flexcoin:Bitcoin:896:600,000:600,000:Hot wallet"                                  
+    hack13="13:2014:Poloniex:Bitcoin:97:67,500:67,500:Undisclosed"                                   
+    hack14="14:2014:Crypto Rush:Various:3,450:630,000:630,000:Undisclosed"                           
+    hack15="15:2014:MintPal:Vericoin:8,000,000:1,933,000:0:Hot wallet"                               
+    hack16="16:2014:Cryptysy:Various:313,000:9,580,000:0:Undisclosed"                                
+    hack17="17:2015:Bitstamp:Bitcoin:19,000:5,100,000:0:Cold wallet"                                  
+    hack18="18:2015:796:Bitcoin:1,000:270,000:0:Internal error"                                      
+    hack19="19:2015:BTER:Bitcoin:7,170:1,750,000:0:Cold wallet"                                      
+    hack20="20:2015:KipCoin:Bitcoin:3,000:728,000:0:Hot wallet"                                      
+    hack21="21:2015:Bitfinex:Bitcoin:1,400:329,000:0:Hot wallet"                                     
+    hack22="22:2016:Gatecoin:Various:185,250:2,140,000:0:Undisclosed"                                
+    hack23="23:2016:ShapeShift:Various:Undisclosed:200,000:0:Hot wallet"                             
+    hack24="24:2016:Bitfinex:Bitcoin:120,000:72,000,000:0:Undisclosed"                               
+    hack25="25:2016:Bitcurex:Bitcoin:Undisclosed:1,500,000:0:Undisclosed"                            
+    hack26="26:2017:Yapizon:Bitcoin:3,831:4,850,000:0:Undisclosed"                                   
+    hack27="27:2017:Bithumb:-:-:-:-:Data - Undisclosed"                                              
+    hack28="28:2017:YouBit:Undisclosed:Undisclosed:Undisclosed:Undisclosed:Undisclosed"              
+    hack29="29:2018:LocalBitcoins:Bitcoin:7.9:27,000:0:Undisclosed"                                   
+    hack30="30:2018:Coincheck:NEM:500,000,000:500,000,000:0:Undisclosed"                             
+    hack31="31:2018:BitGrail:Nano:17,000,000:170,000,000:0:Undisclosed"                              
+    hack32="32:2018:Coinrail:Various:Undisclosed:40,000,000:0:Undisclosed"                           
+    hack33="33:2018:Bithumb:Various:Undisclosed:31,000,000:0:Undisclosed"                            
+    hack34="34:2018:Bancor:Undisclosed:Undisclosed:23,000,000:0:Undisclosed"                         
+    hack35="35:2018:Zaif:Various:Undisclosed:60,000,000:0:Undisclosed"                               
+    hack36="36:2018:MapleChange:Undisclosed:Undisclosed:Undisclosed:Undisclosed:Undisclosed"         
+    hack37="37:2019:Cryptopia:Various:48,019,391:3,620,000:0:Undisclosed"                             
+    hack38="38:2019:Coinmama:-:-:-:-:Data - Undisclosed"                                             
+    hack39="39:2019:DragonEX:Undisclosed:Undisclosed:Undisclosed:Undisclosed:Undisclosed"            
+    hack40="40:2019:Coinbene:Undisclosed:Undisclosed:100,000,000:0:Undisclosed"                      
+    hack41="41:2019:Bithumb:EOS:Undisclosed:13,000,000:0:Internal theft"                             
+    hack42="42:2019:Bitrue:Undisclosed:Undisclosed:4,200,000:0:Undisclosed"                          
+    hack43="43:2019:BITPoint:Cash:32,000,000:32,000,000:0:Hot wallet"                                
+    hack44="44:2019:Upbit:Ethereum:342,000:49,000,000:0:Hot wallet"                                  
+    hack45="45:2020:Altsbit:Various:Undisclosed:73,000:0:Undisclosed"                                 
+    hack46="46:2020:BlockFi:-:-:-:-:Unsuccessful"                                                    
+    hack47="47:2020:BuyUcoin:-:-:-:-:Data - Undisclosed"                                             
+    hack48="48:2020:Eterbase:Undisclosed:Undisclosed:5,400,000:0:Undisclosed"                        
+    hack49="49:2020:KuCoin:Undisclosed:Undisclosed:280,000:0:Hot wallet key theft"                   
+    hack50="50:2020:Livecoin:-:-:-:-:Undisclosed"                                                    
+    hack51="51:2021:Cryptopia:Undisclosed:Undisclosed:45,000:45,000:Undisclosed"                      
+    hack52="52:2021:Hotbit:-:-:-:-:Unsuccessful"                                                     
+    hack53="53:2021:Liquid:Undisclosed:Undisclosed:80,000,000:0:Hot wallet"                          
+    hack54="54:2021:BitMart:Undisclosed:Undisclosed:150,000,000:0:Undisclosed"                       
+    hack55="55:2021:AscendEX:Undisclosed:Undisclosed:78,000,000:0:Undisclosed"                       
+    hack56="56:2022:LCX:Various:Undisclosed:6,800,000:0:Hot wallet"                                   
+                                                                                                     
 ######################################################################################################
 
 # Function creates arrays.txt from arrays $hack{1..56} inserts a delimiter "#" at the beginning of each variables
@@ -753,7 +749,7 @@ E_H="hack{46,52}"     unsuccessful
         totals
 
         rm "V_A.txt"
-        rm "V_A.txt"
+        rm "V_A_T.txt"
     } 
 
     function V_B() {
@@ -946,113 +942,113 @@ E_H="hack{46,52}"     unsuccessful
     
     function E_B() {
 
-    var_a="E_B.txt"
-    var_b="E_B_T.txt"
+        var_a="E_B.txt"
+        var_b="E_B_T.txt"
 
-    echo -e \#$hack{11,17,19} > E_B.txt
+        echo -e \#$hack{11,17,19} > E_B.txt
 
-    format_text 
-    table_all_data 
-    totals
+        format_text 
+        table_all_data 
+        totals
 
-    rm "E_B.txt"
-    rm "E_B_T.txt"
+        rm "E_B.txt"
+        rm "E_B_T.txt"
 
     }
 
     function E_C() {
 
-    var_a="E_C.txt"
-    var_b="E_C_T.txt"
+        var_a="E_C.txt"
+        var_b="E_C_T.txt"
 
-    echo -e \#$hack{1,4} > E_C.txt
+        echo -e \#$hack{1,4} > E_C.txt
 
-    format_text 
-    table_all_data 
-    totals
+        format_text 
+        table_all_data 
+        totals
 
-    rm "E_C.txt"
-    rm "E_C_T.txt"
+        rm "E_C.txt"
+        rm "E_C_T.txt"
 
     }
 
     function E_D() {
 
-    var_a="E_D.txt"
-    var_b="E_D_T.txt"
+        var_a="E_D.txt"
+        var_b="E_D_T.txt"
 
-    echo -e \#$hack18 > E_D.txt
+        echo -e \#$hack18 > E_D.txt
 
-    format_text 
-    table_all_data 
-    totals
+        format_text 
+        table_all_data 
+        totals
 
-    rm "E_D.txt"
-    rm "E_D_T.txt"
+        rm "E_D.txt"
+        rm "E_D_T.txt"
 
     }
 
     function E_E() {
 
-    var_a="E_E.txt"
-    var_b="E_E_T.txt"
+        var_a="E_E.txt"
+        var_b="E_E_T.txt"
 
-    echo -e \#$hack41 > E_E.txt
+        echo -e \#$hack41 > E_E.txt
 
-    format_text 
-    table_all_data 
-    totals
+        format_text 
+        table_all_data 
+        totals
 
-    rm "E_E.txt"
-    rm "E_E_T.txt"
+        rm "E_E.txt"
+        rm "E_E_T.txt"
 
     }
 
     function E_F() {
 
-    var_a="E_F.txt"
-    var_b="E_F_T.txt"
+        var_a="E_F.txt"
+        var_b="E_F_T.txt"
 
-    echo -e \#$hack9 > E_F.txt
+        echo -e \#$hack9 > E_F.txt
 
-    format_text 
-    table_all_data 
-    totals
+        format_text 
+        table_all_data 
+        totals
 
-    rm "E_F.txt"
-    rm "E_F_T.txt"
+        rm "E_F.txt"
+        rm "E_F_T.txt"
 
     }
 
     function E_G() {
 
-    var_a="E_G.txt"
-    var_b="E_G_T.txt"
+        var_a="E_G.txt"
+        var_b="E_G_T.txt"
 
-    echo -e \#$hack{2,5,6,8,10,13,14,16,22,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,42,45,47,48,50,51,54,55} > E_G.txt
+        echo -e \#$hack{2,5,6,8,10,13,14,16,22,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,40,42,45,47,48,50,51,54,55} > E_G.txt
 
-    format_text 
-    table_all_data 
-    totals
+        format_text 
+        table_all_data 
+        totals
 
-    rm "E_G.txt"
-    rm "E_G_T.txt"
+        rm "E_G.txt"
+        rm "E_G_T.txt"
 
     }
 
     function E_H() {
 
-    var_a="E_H.txt"
-    var_b="E_H_T.txt"
+        var_a="E_H.txt"
+        var_b="E_H_T.txt"
 
-    echo -e \#$hack{46,52}  > E_H.txt
+        echo -e \#$hack{46,52}  > E_H.txt
 
-    format_text 
-    table_all_data 
-    totals
+        format_text 
+        table_all_data 
+        totals
 
-    rm "E_H.txt"
-    rm "E_H_T.txt"
+        rm "E_H.txt"
+        rm "E_H_T.txt"
 
     }
 
@@ -1065,31 +1061,31 @@ E_H="hack{46,52}"     unsuccessful
 # "Password_check" function checks the user's credentials against the password
 # Password is encrypted and located in "Password/not_a_password.txt"
 
-    function password_unlock() {
+#    function password_unlock() {
 
-        read -sp "Database is locked. Please enter your password: " Pass_unlock
+#        read -sp "Database is locked. Please enter your password: " Pass_unlock
 
-        Pass_unlock_hash=$(echo "$Pass_unlock" | sha256sum)
-        Pass_lock="Password/not_a_password.txt"
-        Pass_lock_hash=$(cat "$Pass_lock")
+#        Pass_unlock_hash=$(echo "$Pass_unlock" | sha256sum)
+#        Pass_lock="Password/not_a_password.txt"
+#        Pass_lock_hash=$(cat "$Pass_lock")
 
 # If password is incorrect, script terminates
 
-        if [ "$Pass_lock_hash" -ne "$Pass_unlock_hash" ]; then
+#        if [ "$Pass_lock_hash" -ne "$Pass_unlock_hash" ]; then
 
-            echo $red"Access Denied"$clear
+#            echo $red"Access Denied"$clear
 
-            exit 1
+#            exit 1
 
 # If password is correct, proceed to menu
 
-        else
+#        else
 
-            echo $green'Access Granted.'$clear
-            menu_main
+#            echo $green'Access Granted.'$clear
+#            menu_main
 
-        fi
-    }
+#        fi
+#    }
 
 ###################################################################################################
 
@@ -1178,7 +1174,6 @@ E_H="hack{46,52}"     unsuccessful
             " choice_menu_1
 
         case "$choice_menu_1" in
-
             1)
                 arrays
                 table_all_data    
@@ -1193,18 +1188,18 @@ E_H="hack{46,52}"     unsuccessful
                 menu_exit ;;
             *)
                 menu_error ;;
-    })
+    
+    
         esac
-
+    }
 
     function menu_2() {
         read -p "
             1. Select a year
             2. Back
             3. Exit
-            " choice_menu_2
-            case "$choice_menu_1" in
-
+            " choice_menu_2_1
+            case "$choice_menu_2_1" in
                 1)
                     menu_2_1 ;;
                 2)
@@ -1213,13 +1208,14 @@ E_H="hack{46,52}"     unsuccessful
                     menu_exit ;;
                 *)
                     menu_error ;;
+    
+           esac
     }
-    )       esac
 
     function menu_2_1() {
         read -p "
             1. 2011
-            2. 2012
+            2. 2012 
             3. 2013
             4. 2014
             5. 2015
@@ -1394,9 +1390,8 @@ E_H="hack{46,52}"     unsuccessful
         11. Exit
         " choice_menu_5_1
 
-            case "$choice_menu_5_1"
+            case "$choice_menu_5_1" in
             # Call "value stolen" functions
-
             1)
                 V_A
                 menu_5 ;;
@@ -1515,16 +1510,13 @@ E_H="hack{46,52}"     unsuccessful
 # Code execution #
 ##################
 
-curl=$(which curl)
-dumpfile="dump.txt"
-stripfile="strip.txt"
-formatfile="format.txt"
-arraysfile="arrays.txt"
-url="https://cryptosec.info/exchange-hacks/"
-
 dump_webpage
 remove_html
 formatting
+menu_main
+
+
+
 
 
 
