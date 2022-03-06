@@ -42,8 +42,6 @@ arraysfile="arrays.txt"
 url="https://cryptosec.info/exchange-hacks/"
 
 
-
-
 # Hacking event variables
 
 # Year
@@ -73,16 +71,15 @@ C_Undisclosed="hack{28,34,49,40,42,48,49,51,53,54,55}"
 C_Data"=hack{2,27,38,46,47,50,52}"
 
 # Units stolen
-U_A="hack{29,13,12}"      <4,999
+U_A="hack{29,13,12}"      <1,000
 U_B="hack{18,8,21,20,14,26,9}"    1,000-4,999
 U_C="hack{11,19,17,6,4,5,3}" 5,000-49,999
-U_D
-U_E="hack{24,22,7,16,44,10}" 100,000-999,999
-U_F="hack{15,31,43,37,30}" >5,000,000
-U_G"=hack{1,23,25,28,32,33,34,35,36,39,40,41,42,45,48,49,51,53,54,55,56}" Undisclosed
+U_D="hack{24,22,7,16,44,10}" 100,000-999,999
+U_E="hack{15,31,43,37,30}" >8,000,000
+U_F="hack{1,23,25,28,32,33,34,35,36,39,40,41,42,45,48,49,51,53,54,55,56}" Undisclosed
 
 # Value stolen
-V_A="hack{29,51}"    <49,999
+V_A="hack{29,51}"    <50,000
 V_B="hack{13,45,4}"  50,000-99,999
 V_C"=hack{23,3,6,18,49,5,21,7}"     100,000-499,999
 V_D="hack{12,14,20}"     500,000-999,999
@@ -657,7 +654,7 @@ E_H="hack{46,52}"     unsuccessful
         totals
 
         rm "U_A.txt"
-        rm "U_A.txt"
+        rm "U_A_T.txt"
     } 
 
     function U_B() {
@@ -672,7 +669,7 @@ E_H="hack{46,52}"     unsuccessful
         totals
 
         rm "U_B.txt"
-        rm "U_B.txt"
+        rm "U_B_T.txt"
     } 
 
     function U_C() {
@@ -1171,7 +1168,6 @@ E_H="hack{46,52}"     unsuccessful
         
         menu_main
         exit 1
-        
     }
 
     function menu_1() {
@@ -1190,7 +1186,7 @@ E_H="hack{46,52}"     unsuccessful
                 format_text
                 rm "arrays.txt"
                 rm "arrays_T.txt"
-                menu_1 ;;
+                menu_main ;;
             2)
                 menu_main ;;
             3)
@@ -1210,10 +1206,9 @@ E_H="hack{46,52}"     unsuccessful
             case "$choice_menu_1" in
 
                 1)
-                    # Call menu_2_1 function
                     menu_2_1 ;;
                 2)
-                    menu_2 ;;
+                    menu_main ;;
                 3)
                     menu_exit ;;
                 *)
@@ -1240,381 +1235,331 @@ E_H="hack{46,52}"     unsuccessful
             " choice_menu_2_1
 
             case "$choice_menu_2_1" in
-                # Call "year" function
+                # Call "year" functions
                 1)
-                    Y_2011 ;;
-                2)
-                    Y_2012 ;;
-                3)
-                    Y_2013 ;;
-                4)
-                    Y_2014 ;;
-                5)
-                    Y_2015 ;;
-                6)
-                    Y_2016 ;;
-                7)
-                    Y_2017 ;;
-                8)
-                    Y_2018 ;;
-                9)
-                    Y_2019;;
-                10)
-                    Y_2020 ;;
-                11)
-                    Y_2021 ;;
-                12)
-                    Y_2022 ;;
-                13)
+                    Y_2011
                     menu_2 ;;
+                2)
+                    Y_2012
+                    menu_2 ;;
+                3)
+                    Y_2013
+                    menu_2 ;;
+                4)
+                    Y_2014
+                    menu_2 ;;
+                5)
+                    Y_2015
+                    menu_2 ;;
+                6)
+                    Y_2016
+                    menu_2 ;;
+                7)
+                    Y_2017
+                    menu_2 ;;
+                8)
+                    Y_2018
+                    menu_2 ;;
+                9)
+                    Y_2019
+                    menu_2 ;;
+                10)
+                    Y_2020
+                    menu_2 ;;
+                11)
+                    Y_2021
+                    menu_2 ;;
+                12)
+                    Y_2022
+                    menu_2 ;;
+                13)
+                    menu_main ;;
                 14)
-                    menu_exit
+                    menu_exit ;;
                 *)
                     menu_error ;;
-
-
+            esac
+    }
 
     function menu_3() {
+        read -p "
+        1. Bitcoin
+        2. EOS
+        3. Ethereum
+        4. NEM
+        5. Nano
+        6. Vericoin
+        7. Multiple currencies
+        8. Undisclosed
+        9. Cash only
+        10. Data only
+        11. Back
+        12. Exit
+        " choice_menu_3_1
 
-
+            case "$choice_menu_3_1" in
+                # call "currency" functions
+                1)
+                    C_Bitcoin
+                    menu_3 ;;
+                2)
+                    C_EOS
+                    menu_3 ;;
+                3)
+                    C_Ethereum
+                    menu_3 ;;
+                4)
+                    C_NEM
+                    menu_3 ;;
+                5)
+                    C_Nano
+                    menu_3 ;;
+                6)
+                    C_Vericoin
+                    menu_3 ;;
+                7)
+                    C_Multiple
+                    menu_3 ;;
+                8)
+                   C_Undisclosed
+                   menu_3 ;;
+                9)
+                    C_cash
+                    menu_3 ;;
+                10) 
+                    C_Data
+                    menu_3 ;;
+                11)
+                    menu_main ;;
+                12)
+                    menu_exit ;;
+                *)
+                    menu_error ;;
+            esac
     }
 
     function menu_4() {
+        read -p "
+        1. < 1,000
+        2. 1,000 - 4,999
+        3. 5,000 - 49,999
+        4. 100,000 - 999,999
+        5. > 8,000,000
+        6. Undisclosed
+        7. Back
+        8. Exit
+        " choice_menu_4_1
 
-
+            case "$choice_menu_4_1" in
+            # call "units stolen" functions
+            1)
+                U_A
+                menu 4 ;;
+            2)
+                U_B
+                menu 4 ;;
+            3)
+                U_C
+                menu 4 ;;
+            4)
+                U_D
+                menu 4 ;;
+            5)
+                U_E
+                menu 4 ;;
+            6)
+                U_F
+                menu 4 ;;
+            7)
+                menu_main ;;
+            8)
+                menu_exit ;;
+            *)
+                menu_error ;;
+            esac
     }
 
-
     function menu_5() {
+        read -p "
+        1. < \$50,000
+        2. \$50,000 - \$99,999
+        3. \$100,000 - \$499,999
+        4. \$500,000 - \$999,999
+        5. \$1,000,000 - \$4,999,999
+        6. \$5,000,000 - \$49,999,999
+        7. \$50,000,000 - \$99,999,999
+        8. > \$100,000,000
+        9. Undisclosed
+        10. Back
+        11. Exit
+        " choice_menu_5_1
 
+            case "$choice_menu_5_1"
+            # Call "value stolen" functions
 
+            1)
+                V_A
+                menu_5 ;;
+            2)
+                V_B
+                menu_5 ;;
+            3)
+                V_C
+                menu_5 ;;
+            4)
+                V_D
+                menu_5 ;;
+            5)
+                V_E
+                menu_5 ;;
+            6)
+                V_F
+                menu_5 ;;
+            7)
+                V_G
+                menu_5 ;;
+            8)
+                V_H
+                menu_5 ;;
+            9)
+                V_I
+                menu_5 ;;
+            10)
+                menu_main ;;
+            11)
+                menu_exit ;;
+            *)
+                menu_error ;;
+            esac
     }
 
     function menu_6() {
+        read -p "
+        1. Currency recovered
+        2. No currency recovered
+        3. Undisclosed
+        4. Back
+        5. Exit
+        " choice_menu_6_1
 
-
+            case "$choice_menu_6_1" in
+            # Call "currency recovered" functions
+            1)
+                R_all
+                menu_6 ;;
+            2)
+                R_none
+                menu_6 ;;
+            3)
+                R_U
+                menu_6 ;;
+            4)
+                menu_main ;;
+            5)
+                menu_exit ;;
+            *)
+                menu_error ;;
+            esac
     }
-
 
     function menu_7() {
+        read -p "
+        1. Hot wallet
+        2. Cold wallet
+        3. Credentials
+        4. Internal error
+        5. Internal theft
+        6. Server vulnerability
+        7. Undisclosed
+        8. Unsuccessful
+        9. Back
+        10. Exit
+        " choice_menu_7_1
 
-
+            case "$choice_menu_7_1" in
+            # Call "exploits" functions
+            1)
+                E_A
+                menu_7 ;;
+            2)
+                E_B
+                menu_7 ;;
+            3)
+                E_C
+                menu_7 ;;
+            4)
+                E_D
+                menu_7 ;;
+            5)
+                E_E
+                menu_7 ;;
+            6)
+                E_F
+                menu_7 ;;
+            7)
+                E_G
+                menu_7 ;;
+            8)
+                E_H
+                menu_7 ;;
+            9)
+                menu_main ;;
+            10)
+                menu_exit ;;
+            *)
+                menu_error ;;
+            esac
     }
-
-
-#########################
-# MENUS
-
-# Main menu                                     # $menu_main
-    # OPTIONS
-        # 1. Show all hacking event data        # $menu_1
-            # 1.1 Show all data                 # function menu_1_1_all_data()
-            # 1.2 Back                          # $menu_main
-            # 1.3 Exit                          # $exit
-        # 2. Search by year                     # $menu_2
-                # 2.1 2011                      # $menu_2_1
-                    # 2.1.1 Summary             # $Y_2011
-                    # 2.1.2 Back                # $menu_2
-                    # 2.1.3 Exit                # $exit
-                # 2.2 2012                      # $menu_2_2
-                    # 2.2.1 Summary             > $Y_2012
-                    # 2.2.2 Back                > $menu_2
-                    # 2.2.2 Exit                > $exit
-                # 2.3 2013                      > $menu_2_3
-                    # 2.3.1 Summary             > $Y_2013
-                    # 2.3.2 Back                > $menu_2
-                    # 2.3.3 Exit                > $exit
-                # 2.4 2014                      > $menu_2_4
-                    # 2.4.1 Summary             > $Y_2014
-                    # 2.4.2 Back                > $menu_2
-                    # 2.4.3 Exit                > $exit            
-                # 2.5 2015                      > $menu_2_5
-                    # 2.5.1 Summary             > $Y_2015
-                    # 2.5.2 Back                > $menu_2
-                    # 2.5.3 Exit                > $exit
-                # 2.6 2016                      > $menu_2_6
-                    # 2.6.1 Summary             > $Y_2016
-                    # 2.6.2 Back                > $menu_2
-                    # 2.6.3 Exit                > $exit                
-                # 2.7 2017                      > $menu_2_7
-                    # 2.7.1 Summary             > $Y_2017
-                    # 2.7.2 Back                > $menu_2
-                    # 2.7.3 Exit                > $exit
-                # 2.8 2018                      > $menu_2_8
-                    # 2.8.1 Summary             > $Y_2018
-                    # 2.8.2 Back                > $menu_2
-                    # 2.8.3 Exit                > $exit
-                # 2.9 2019                      > $menu_2_9
-                    # 2.9.1 Summary             > $Y_2019
-                    # 2.9.2 Back                > $menu_2
-                    # 2.9.3 Exit                > $exit
-                # 2.10 2020                     > $menu_2_10
-                    # 2.10.1 Summary            > $Y_2020
-                    # 2.10.2 Back               > $menu_2
-                    # 2.10.3 Exit               > $exit
-                # 2.11 2021                     > $menu_2_11
-                    # 2.11.1 Summary            > $Y_2021
-                    # 2.11.2 Back               > $menu_2
-                    # 2.11.3 Exit               > $exit
-                # 2.12 2022                     > $menu_2_12
-                    # 2.12.1 Summary            > $Y_2022
-                    # 2.12.2 Back               > $menu_2
-                    # 2.12.3 Exit               > $exit
-                # 2.13 Back                     > $menu_main
-                # 2.14 Exit                     > $exit
-
-        # 3. Search by currency stolen          > $menu_3
-            # 3.1 Bitcoin                       > $menu_3_1
-                # 3.1.1 Summary                 > $C_Bitcoin
-                # 3.1.2 Back                    > $menu_3
-                # 3.1.3 exit                    > $exit
-            # 3.2 EOS                           > $menu_3_2
-                # 3.2.1 Summary                 > $C_EOS
-                # 3.2.2 Back                    > $menu_3
-                # 3.2.3 Exit                    > $exit
-            # 3.3 Ethereum                      > $menu_3_3
-                # 3.3.1 Summary                 > $C_Ethereum
-                # 3.3.2 Back                    > $menu_3
-                # 3.3.3 Exit                    > $exit
-            # 3.4 NEM                           > $menu_3_4
-                # 3.4.1 Summary                 > $C_NEM
-                # 3.4.2 Back                    > $menu_3
-                # 3.4.3 Exit                    > $exit
-            # 3.5 Nano                          > $menu_3_5
-                # 3.5.1 Summary                 > $C_Nano
-                # 3.5.2 Back                    > $menu_3
-                # 3.5.3 Exit                    > $exit
-            # 3.6 Vericoin                      > $menu_3_6
-                # 3.6.1 Summary                 > $C_Verizon
-                # 3.6.2 Back                    > $menu_3
-                # 3.6.3 Exit                    > $exit
-            # 3.7 Multiple currencies           > $menu_3_7
-                # 3.7.1 Summary                 > $C_multiple
-                # 3.7.2 Back                    > $menu_3
-                # 3.7.3 Exit                    > $exit
-            # 3.8 Undisclosed                   > $menu_3_8
-                # 3.8.1 Summary                 > $C_undisclosed
-                # 3.8.2 Back                    > $menu_3
-                # 3.8.3 Exit                    > $exit
-            # 3.9 Cash only                     > $menu_3_9
-                # 3.9.1 Summary                 > $C_cash
-                # 3.9.2 Back                    > $menu_3
-                # 3.9.3 Exit                    > $exit
-            # 3.10 Data only                    > $menu_3_10
-                # 3.10.1 Summary                > $Data
-                # 3.10.2 Back                   > $menu_3
-                # 3.10.3 Exit                   > $exit
-            # 3.11 Back                         > $menu_main
-            # 3.12 Exit                         > $exit
-        
-        # 4. Search by number of units stolen   > $menu_4
-            # 4.1 <100                          > $menu_4_1
-                # 4.1.1 Summary                 > $U_0-99
-                # 4.1.2 Back                    > $menu_4
-                # 4.1.3 Exit                    > $exit
-            # 4.2 100 - 999                     > $menu_4_2
-                # 4.2.1 Summary                 > $U_100-999
-                # 4.2.2 Back                    > $menu_4
-                # 4.2.3 Exit                    > $exit
-            # 4.3 1,000 - 9,999                 > $menu_4_3
-                # 4.3.1 Summary                 > $U_1000-9999
-                # 4.3.2 Back                    > $menu_4
-                # 4.3.3 Exit                    > $exit    
-            # 4.4 10,000 - 99,999               > $menu_4_4
-                # 4.4.1 Summary                 > $U_10000-99999
-                # 4.4.2 Back                    > $menu_4
-                # 4.4.3 Exit                    > $exit
-            # 4.5 100,000 - 999,999             > $menu_4_5
-                # 4.5.1 Summary                 > $U_100000-999999
-                # 4.5.2 Back                    > $menu_4
-                # 4.5.3 Exit                    > $exit
-            # 4.6 1,000,000 - 9,999,999         > $menu_4_6
-                # 4.6.1 Summary                 > $U_1000000-9999999
-                # 4.6.2 Back                    > $menu_4
-                # 4.6.3 Exit                    > $exit
-            # 4.7 10,000,000 - 99,999,999       > $menu_4_7
-                # 4.7.1 Summary                 > $U_10000000-99999999
-                # 4.7.2 Back                    > $menu_4
-                # 4.7.3 Exit                    > $exit
-            # 4.8 > 100,000,000                 > $menu_4_8
-                # 4.8.1 Summary                 > $U_>100000000
-                # 4.8.2 Back                    > $menu_4
-                # 4.8.3 Exit                    > $exit
-            # 4.9 Undisclosed                   > $menu_4_9
-                # 4.9.1 Summary                 > $U_undisclosed
-                # 4.9.2 Back                    > $menu_4
-                # 4.9.3 Exit                    > $exit
-
-        # 5. Search by value stolen             > $menu_5
-            # 5.1 <$50,000                      > $menu_5_1
-                # 5.1.1 Summary                 > $V_49999
-                # 5.1.2 Back                    > $menu_5
-                # 5.1.3 Exit                    > $exit
-            # 5.2 $50,000 - $99,999             > $menu_5_2
-                # 5.2.1 Summary                 > $V_50000-99999
-                # 5.2.2 Back                    > $menu_5
-                # 5.2.3 Exit                    > $exit
-            # 5.3 $100,000 - $499,999           > $menu_5_3
-                # 5.3.1 Summary                 > $V_100000-499999
-                # 5.3.2 Back                    > $menu_5
-                # 5.3.3 Exit                    > $exit
-            # 5.4 $500,000 - $999,999           > $menu_5_4
-                # 5.4.1 Summary                 > $V_500000-999999
-                # 5.4.2 Back                    > $menu_5
-                # 5.4.3 Exit                    > $exit
-            # 5.5 $1,000,000 - $4,999,999       > $menu_5_5
-                # 5.5.1 Summary                 > $V_1000000-4999999
-                # 5.5.2 Back                    > $menu_5
-                # 5.5.3 Exit                    > $exit   
-            # 5.6 $5,000,000 - $9,999,999       > $menu_5_6
-                # 5.6.1 Summary                 > $V_5000000-9999999
-                # 5.6.2 Back                    > $menu_5
-                # 5.6.3 Exit                    > $exit
-            # 5.7 $10,000,000 - $49,999,999     > $menu_5_7
-                # 5.7.1 Summary                 > $V_10000000-49999999
-                # 5.7.2 Back                    > $menu_5
-                # 5.7.3 Exit                    > $exit
-            # 5.8 $50,000,000 - $99,999,999     > $menu_5_8
-                # 5.8.1 Summary                 > $V_50000000-99999999
-                # 5.8.2 Back                    > $menu_5
-                # 5.8.3 Exit                    > $exit
-            # 5.9 > $100,000,000                > $menu_5_9
-                # 5.9.1 Summary                 > $V_>100000000
-                # 5.9.2 Back                    > $menu_5
-                # 5.9.3 Exit                    > $exit
-            # 5.10 Back                         > $menu_main
-            # 5.11 Exit                         > $exit
-         
-        # 6. Search by funds recovered          > $menu_6
-            # 6.1 Yes                           > $menu_6_1
-                # 6.1.1 Summary                 > $R_all
-                # 6.1.2 Back                    > $menu_6
-                # 6.1.3 Exit                    > $exit
-            # 6.2 No                            > $menu_6_2
-                # 6.2.1 Summary                 > $R_none
-                # 6.2.2 Back                    > $menu_6
-                # 6.2.3 Exit                    > $exit
-            # 6.3 Undisclosed                   > $menu_6_3
-                # 6.3.1 Summary                 > $R_undisclosed
-                # 6.3.2 Back                    > $menu_6
-                # 6.3.3 Exit                    > $exit
-            # 6.4 Back                          > $menu_main
-            # 6.5 Exit                          > $exit
-
-        # 7. Search by exploit                  > $menu_7
-            # 7.1 Hot wallet                    > $menu_7_1
-                # 7.1.1 Summary                 > $E_hot
-                # 7.1.2 Back                    > $menu_7
-                # 7.1.3 Exit                    > $exit
-            # 7.2 Cold wallet                   > $menu_7_2
-                # 7.2.1 Summary                 > $E_cold
-                # 7.2.2 Back                    > $menu_7
-                # 7.2.3 Exit                    > $exit     
-            # 7.3 Credential theft              > $menu_7_3
-                # 7.3.1 Summary                 > $E_credentials
-                # 7.3.2 Back                    > $menu_7
-                # 7.3.3 Exit                    > $exit
-            # 7.4 Internal error                > $menu_7_4
-                # 7.4.1 Summary                 > $E_error
-                # 7.4.2 Back                    > $menu_7
-                # 7.4.3 Exit                    > $exit
-            # 7.5 Internal theft                > $menu_7_5
-                # 7.5.1 Summary                 > $E_internal
-                # 7.5.2 Back                    > $menu_7
-                # 7.5.3 Exit                    > $exit
-            # 7.6 Server error                  > $menu_7_6
-                # 7.6.1 Summary                 > $E_server
-                # 7.6.2 Back                    > $menu_7
-                # 7.7.3 Exit                    > $exit
-            # 7.7 Undisclosed                   > $menu_7_7
-                # 7.7.1 Summary                 > $E_undisclosed
-                # 7.7.2 Back                    > $menu_7
-                # 7.7.3 Exit                    > $exit
-            # 7.8 Unsuccessful                  > $menu_7_8
-                # 7.8.1 Summary                 > $E_unsuccessful
-                # 7.8.2 Back                    > $menu_7
-                # 7.8.3 Exit                    > $exit
-            # 7.9 Back                          > $menu_main
-            # 7.10 Exit                         > $exit
-
-        # 8. Exit                               > $exit
-
-
-#######################
-# Menu functions
-
-
-
-
-# Case functions
-
 
 ##################
 # Code execution #
 ##################
 
+curl=$(which curl)
+dumpfile="dump.txt"
+stripfile="strip.txt"
+formatfile="format.txt"
+arraysfile="arrays.txt"
+url="https://cryptosec.info/exchange-hacks/"
+
 dump_webpage
 remove_html
 formatting
-arrays
-formatting
-table_all_data
+
 
 
 
 # REFERENCES
 
+# https://cryptosec.info/exchange-hacks/
+# https://stackoverflow.com/questions/9907200/how-to-minify-obfuscate-a-bash-script
+# https://www.appsealing.com/code-obfuscation/
+# https://www.youtube.com/watch?v=sa-TUpSx1JA 
+# https://www.youtube.com/watch?v=fCw-xf31M_s 
 # https://www.youtube.com/watch?v=DZ0WKRmUTm4 
-# https://linuxhandbook.com/display-specific-lines/
-# https://ostechnix.com/add-line-numbers-text-files-linux/
-# https://linuxhint.com/sed_remove_whitespace/
-# https://stackoverflow.com/questions/922449/how-can-i-replace-multiple-empty-lines-with-a-single-empty-line-in-bash
-# https://askubuntu.com/questions/1206110/sed-extract-lines-from-text
-# https://www.unix.com/shell-programming-and-scripting/134483-insert-line-break.html
-# https://www.unix.com/shell-programming-and-scripting/210171-how-sort-column-unix-colon-separated.html
-# https://dev.to/meleu/how-to-join-array-elements-in-a-bash-script-303a
-# https://guide.bash.academy/expansions/
-# https://devhints.io/bash
-# https://towardsdatascience.com/how-to-create-a-foolproof-interactive-terminal-menu-with-bash-scripts-97911586d4e5
+# https://linuxhandbook.com/display-specific-lines/ 
+# https://ostechnix.com/add-line-numbers-text-files-linux/ 
+# https://linuxhint.com/sed_remove_whitespace/ 
+# https://stackoverflow.com/questions/922449/how-can-i-replace-multiple-empty-lines-with-a-single-empty-line-in-bash 
+# https://askubuntu.com/questions/1206110/sed-extract-lines-from-text 
+# https://www.unix.com/shell-programming-and-scripting/134483-insert-line-break.html 
+# https://www.unix.com/shell-programming-and-scripting/210171-how-sort-column-unix-colon-separated.html 
+# https://dev.to/meleu/how-to-join-array-elements-in-a-bash-script-303a 
+# https://guide.bash.academy/expansions/ 
+# https://devhints.io/bash 
+# https://towardsdatascience.com/how-to-create-a-foolproof-interactive-terminal-menu-with-bash-scripts-97911586d4e5 
+# https://infoheap.com/awk-sum-examples/ 
+# https://www.unix.com/unix-for-dummies-questions-and-answers/222767-file-row-line-count-without-header-footer.html 
 
-# References:
-    # CYB6004.2022.AC1.OFFCAMPUS Scripting Languages
-        # Week 5: Regular expressions and text manipulation
-        # 5.5 Understand and execute scripts that use AWK
-    # https://www.youtube.com/watch?v=sa-TUpSx1JA
-    # https://www.youtube.com/watch?v=fCw-xf31M_s
+# CYB6004.2022.AC1.OFFCAMPUS Scripting Languages
+#    Week 2: Creating user interaction scripts
+#        2.2 Writing more interactive scripts
+#        2.4 Write if statements to control program flow
+#    Week 3 - Snippets and repetition
+#        3.3 Using loops for repetition
+#    Week 5: Regular expressions and text manipulation
+#        5.5 Understand and execute scripts that use AWK
 
-
-
-## Number lines
-#function count_lines() {
-#    LINES=$(cat $formatted)
-#    LineNumber=0
-#    for LINE in $LINES
-#    do
-#    echo ":Line $LineNumber: $LINE" >> $numbered
-#    LineNumber=$((LineNumber+1))
-# done
-#}
-
-# Unsuccessful function for data extraction
-    #function extract_data() {
-        #grep "Crypto" $numbered | sed -e '/[Line1|Line1000]/p' > extracted.txt
-        #echo $numbered | sed -n '/Crypto/p' > extracted.txt
-        #egrep '1|100' $numbered $extracted
-        #sed -n '/^[1|100]/p' $numbered
-        #awk -i 'NR>=1 && NR<= 100' $numbered
-    #}
-
-# Unused HTML removal commands
-    #sed -i '/<h3>.*&#8211;.*<\/h3>/,$!d' $outfile
-    #sed -i '/482180/q' $outfile
-    #sed -i '/<h3>.*<\/h3>/,$!d' $outfile
-    #sed -i '/<h3>.*\\d{4}<\/h3>/,$!d' $outfile    
-    
-# Unused variables
-    #numbered="numbered.txt"
-    #extract="extracted.txt"
-    #tabledata="table.txt"
-    #regex="<p>$1"
-    #searchterm=$(echo $1 | tr ' ' '+')
+#################
+# END OF SCRIPT #
+#################
