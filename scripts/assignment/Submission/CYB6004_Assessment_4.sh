@@ -600,7 +600,7 @@ E_H="hack{46,52}"
         table_all_data 
         
         rm "C_Undisclosed.txt"
-        rm "C_Undisclosed.txt"
+        rm "C_Undisclosed_T.txt"
     }
 
     function C_Data() {
@@ -666,7 +666,16 @@ E_H="hack{46,52}"
 
     function U_D() {
 
-        echo -e None
+        var_a="U_D.txt"
+        var_b="U_D_T.txt"
+
+        echo -e \#$hack{24,22,7,16,44,10} > U_D.txt
+
+        format_text 
+        table_all_data 
+        
+        rm "U_D.txt"
+        rm "U_D_T.txt"
     } 
 
     function U_E() {
@@ -674,7 +683,7 @@ E_H="hack{46,52}"
         var_a="U_E.txt"
         var_b="U_E_T.txt"
 
-        echo -e \#$hack{24,22,7,16,44,10} > U_E.txt
+        echo -e \#$hack{15,31,43,37,30} > U_E.txt
 
         format_text 
         table_all_data 
@@ -688,27 +697,13 @@ E_H="hack{46,52}"
         var_a="U_F.txt"
         var_b="U_F_T.txt"
 
-        echo -e \#$hack{15,31,43,37,30} > U_F.txt
+        echo -e \#$hack{1,23,25,28,32,33,34,35,36,39,40,41,42,45,48,49,51,53,54,55,56} > U_F.txt
 
         format_text 
         table_all_data 
         
         rm "U_F.txt"
         rm "U_F_T.txt"
-    } 
-
-    function U_G() {
-
-        var_a="U_G.txt"
-        var_b="U_G_T.txt"
-
-        echo -e \#$hack{1,23,25,28,32,33,34,35,36,39,40,41,42,45,48,49,51,53,54,55,56} > U_G.txt
-
-        format_text 
-        table_all_data 
-        
-        rm "U_G.txt"
-        rm "U_G_T.txt"
     } 
 
 ###########################
@@ -1282,22 +1277,22 @@ E_H="hack{46,52}"
             # call "units stolen" functions
             1)
                 U_A
-                menu 4 ;;
+                menu_4 ;;
             2)
                 U_B
-                menu 4 ;;
+                menu_4 ;;
             3)
                 U_C
-                menu 4 ;;
+                menu_4 ;;
             4)
                 U_D
-                menu 4 ;;
+                menu_4 ;;
             5)
                 U_E
-                menu 4 ;;
+                menu_4 ;;
             6)
                 U_F
-                menu 4 ;;
+                menu_4 ;;
             7)
                 menu_main ;;
             8)
@@ -1452,11 +1447,6 @@ arrays
 menu_intro
 menu_main
 
-rm dumpfile
-rm stripfile
-rm formatfile
-rm arrays.txt
-rm arrays_T.txt
 
 
 # REFERENCES
